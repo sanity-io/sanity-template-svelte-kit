@@ -1,3 +1,3 @@
 export default {
-  templateRepoId: 'sanity-io/sanity-template-sapper-blog'
+  templateRepoId: 'sanity-io/sanity-template-svelte-kit-blog'
 }
