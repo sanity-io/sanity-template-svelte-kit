@@ -4,9 +4,11 @@
 </script>
 
 <Header blogTitle={'SvelteKit x Sanity Blog'} />
+
 <main style="padding: 1em">
 	<slot />
 </main>
+
 <Footer />
 
 <style>
