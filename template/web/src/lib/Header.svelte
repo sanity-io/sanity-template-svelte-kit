@@ -31,7 +31,6 @@
 	a {
 		text-decoration: none;
 		display: block;
-		border-bottom: 2px solid transparent;
 	}
 
 	header {

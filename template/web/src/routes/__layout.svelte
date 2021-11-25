@@ -8,3 +8,9 @@
 	<slot />
 </main>
 <Footer />
+
+<style>
+	:global(a) {
+		border-bottom: 2px solid transparent;
+	}
+</style>
