@@ -23,8 +23,8 @@
 	import PortableText from '@portabletext/svelte';
 	import Code from '$lib/Code.svelte';
 	import Link from '$lib/Link.svelte';
-	import Image from '$lib/Image.svelte';
-	import Author from '$lib/Author.svelte';
+	import ImageBlock from '$lib/ImageBlock.svelte';
+	import AuthorBlock from '$lib/AuthorBlock.svelte';
 	import AuthorCard from '$lib/AuthorCard.svelte';
 	import SanityImage from '$lib/SanityImage.svelte';
 
@@ -59,8 +59,8 @@
 	serializers={{
 		types: {
 			code: Code,
-			image: Image,
-			authorReference: Author
+			image: ImageBlock,
+			authorReference: AuthorBlock
 		},
 		marks: {
 			link: Link

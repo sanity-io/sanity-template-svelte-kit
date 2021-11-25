@@ -3,6 +3,13 @@
 
 	export let image;
 	export let maxWidth = 1200;
+	export let alt = undefined;
 </script>
 
-<img loading="lazy" src={urlFor(image).width(maxWidth).fit('fillmax')} alt={image.alt || ''} />
+{#if image}
+	<img
+		loading="lazy"
+		src={urlFor(image).width(maxWidth).fit('fillmax')}
+		alt={alt || image.alt || ''}
+	/>
+{/if}
