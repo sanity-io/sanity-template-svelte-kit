@@ -1,33 +1,24 @@
 <script context="module">
-  export async function load({ params, fetch }) {
-    try {
-      const res = await fetch('/blog/all.json');
-      const { posts } = await res.json()
-      return { 
-        props: { 
-          posts 
-        }
-      };
-    } catch (err) {
-      console.log('500:', err);
-    }
-  };
+	export async function load({ fetch }) {
+		try {
+			const res = await fetch('/blog/all.json');
+			const { posts } = await res.json();
+			return {
+				props: {
+					posts
+				}
+			};
+		} catch (err) {
+			console.log('500:', err);
+		}
+	}
 </script>
 
 <script>
-  export let posts;
-  function formatDate(date) {
-    return new Date(date).toLocaleDateString()
-  }
-</script>
+	import PostCard from '$lib/PostCard.svelte';
 
-<style>
-	ul {
-		margin: 0 0 1em 0;
-		line-height: 1.5;
-    padding: 0 1.5em;
-	}
-</style>
+	export let posts = [];
+</script>
 
 <svelte:head>
 	<title>Blog</title>
@@ -35,12 +26,17 @@
 
 <h1>Recent posts</h1>
 
-<ul>
-	{#each posts as post}
-		<!-- we're using the non-standard `rel=prefetch` attribute to
-				tell Sapper to load the data for the page as soon as
-				the user hovers over the link or taps it, instead of
-				waiting for the 'click' event -->
-		<li><a rel='prefetch' href='blog/{post.slug.current}'>{post.title}</a> ({formatDate(post.publishedAt)})</li>
+<section>
+	{#each posts as post (post.slug.current)}
+		<PostCard {post} />
 	{/each}
-</ul>
+</section>
+
+<style>
+	section {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		gap: 3rem 2rem;
+		margin-top: 3rem;
+	}
+</style>
