@@ -11,6 +11,10 @@
 
 <style>
 	:global(a) {
-		border-bottom: 2px solid transparent;
+		color: #1a4d9e;
+	}
+	:global(a:hover) {
+		color: #1e61cd;
+		border-bottom: none;
 	}
 </style>
