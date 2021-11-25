@@ -30,6 +30,7 @@
 	import Link from '$lib/Link.svelte';
 	import Image from '$lib/Image.svelte';
 	import { urlFor } from '$lib/sanityClient';
+	import Author from '$lib/Author.svelte';
 
 	export let post;
 </script>
@@ -54,7 +55,8 @@
 	serializers={{
 		types: {
 			code: Code,
-			image: Image
+			image: Image,
+			authorReference: Author
 		},
 		marks: {
 			link: Link
