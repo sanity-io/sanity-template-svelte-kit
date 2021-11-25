@@ -1,8 +1,12 @@
+import { AUTHOR_CARD_FRAGMENT } from '$lib/queries';
 import { client } from '$lib/sanityClient';
 
 export async function get({ params: { slug } }) {
 	const post = await client.fetch(/* groq */ `*[_type == "post" && slug.current == "${slug}"][0]{
     ...,
+		"authors": authors[].author->{
+			${AUTHOR_CARD_FRAGMENT}
+		},
     body[] {
       ...,
 			children[] {
@@ -11,9 +15,7 @@ export async function get({ params: { slug } }) {
 				// Let's expand the reference to the author document & get its name, slug & image
 				_type == "authorReference" => {
 					author->{
-						name,
-						slug,
-						image
+						${AUTHOR_CARD_FRAGMENT}
 					}
 				}
 			}
@@ -24,7 +26,7 @@ export async function get({ params: { slug } }) {
 		return {
 			status: 200,
 			body: {
-				post: await post
+				post
 			}
 		};
 	}

@@ -1,18 +1,13 @@
 <script context="module">
-	/**
-	 * @type {import('@sveltejs/kit').Load}
-	 */
 	export async function load({ page, fetch }) {
 		try {
 			const url = `/blog/${page.params.slug}.json`;
 			const res = await fetch(url);
-			const { post } = await res.json();
+			const data = await res.json();
 
-			if (post) {
+			if (data?.post) {
 				return {
-					props: {
-						post: await post
-					}
+					props: data
 				};
 			}
 		} catch (err) {
@@ -29,8 +24,9 @@
 	import Code from '$lib/Code.svelte';
 	import Link from '$lib/Link.svelte';
 	import Image from '$lib/Image.svelte';
-	import { urlFor } from '$lib/sanityClient';
 	import Author from '$lib/Author.svelte';
+	import AuthorCard from '$lib/AuthorCard.svelte';
+	import SanityImage from '$lib/SanityImage.svelte';
 
 	export let post;
 </script>
@@ -41,14 +37,22 @@
 
 <h1>{post.title}</h1>
 <p>
-	published {new Date(post.publishedAt).toLocaleDateString('en', {
+	Published {new Date(post.publishedAt).toLocaleDateString('en', {
 		month: 'long',
 		day: '2-digit',
 		year: 'numeric'
 	})}
 </p>
+
+{#each post.authors || [] as author}
+	<AuthorCard {author} />
+{/each}
+
 <hr />
-<img src={urlFor(post.mainImage)} alt={post.mainImage.alt} />
+
+{#if post.mainImage}
+	<SanityImage image={post.mainImage} />
+{/if}
 
 <PortableText
 	blocks={post.body}

@@ -6,7 +6,7 @@
 
 <article>
 	<h2>
-		<a rel="prefetch" href="blog/{post.slug.current}">{post.title}</a>
+		<a rel="prefetch" href="/blog/{post.slug.current}">{post.title}</a>
 	</h2>
 	{#if post.mainImage}
 		<div class="image">

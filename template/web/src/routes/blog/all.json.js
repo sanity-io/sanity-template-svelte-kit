@@ -1,21 +1,19 @@
+import { AUTHOR_CARD_FRAGMENT, getPostsQuery } from '$lib/queries';
 import { client } from '$lib/sanityClient';
 
 export async function get() {
-	const posts = await client.fetch(/* groq */ `*[
-    _type == "post" && defined(slug.current) && publishedAt < now()
-  ] | order(publishedAt desc) {
-    title,
-    slug,
-    mainImage,
-    publishedAt,
+	// Fetch all valid posts & authors to display in the homepage
+	const data = await client.fetch(/* groq */ `{
+		"posts": ${getPostsQuery()},
+		"authors": *[_type == "author" && defined(slug.current)] {
+			${AUTHOR_CARD_FRAGMENT}
+		}
   }`);
 
-	if (posts) {
+	if (data) {
 		return {
 			status: 200,
-			body: {
-				posts: await posts
-			}
+			body: data
 		};
 	}
 
