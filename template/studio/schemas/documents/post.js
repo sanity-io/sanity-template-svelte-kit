@@ -122,36 +122,6 @@ export default {
       ]
     }
   ],
-  orderings: [
-    {
-      name: 'publishingDateAsc',
-      title: 'Publishing date new–>old',
-      by: [
-        {
-          field: 'publishedAt',
-          direction: 'asc'
-        },
-        {
-          field: 'title',
-          direction: 'asc'
-        }
-      ]
-    },
-    {
-      name: 'publishingDateDesc',
-      title: 'Publishing date old->new',
-      by: [
-        {
-          field: 'publishedAt',
-          direction: 'desc'
-        },
-        {
-          field: 'title',
-          direction: 'asc'
-        }
-      ]
-    }
-  ],
   preview: {
     select: {
       title: 'title',

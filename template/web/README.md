@@ -1,24 +1,10 @@
-# create-svelte
+# <#< repository.name >#>-web
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte);
-
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npm init svelte@next
-
-# create a new project in my-app
-npm init svelte@next my-app
-```
-
-> Note: the `@next` is temporary
+Front-end for your Sanity project, built with [Svelte Kit](https://kit.svelte.dev).
 
 ## Developing
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Start by installing dependencies with `npm install` (or `pnpm install` or `yarn`). Then, start a development server:
 
 ```bash
 npm run dev
@@ -29,7 +15,7 @@ npm run dev -- --open
 
 ## Building
 
-Before creating a production version of your app, install an [adapter](https://kit.svelte.dev/docs#adapters) for your target environment. Then:
+Your site should already be connected to [Netlify](https://netlify.com). If you want, you can install any [adapter](https://kit.svelte.dev/docs#adapters) for your target environment. To execute builds locally, run:
 
 ```bash
 npm run build
