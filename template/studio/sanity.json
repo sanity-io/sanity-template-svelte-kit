@@ -19,6 +19,11 @@
     "@sanity/code-input",
     "asset-source-unsplash"
   ],
+  "env": {
+    "development": {
+      "plugins": ["@sanity/vision"]
+    }
+  },
   "parts": [
     {
       "name": "part:@sanity/base/schema",
