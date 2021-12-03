@@ -4,7 +4,7 @@
   "description": "Fully customizable blog template with a Svelte.js front-end.",
   "previewMedia": {
     "type": "image",
-    "src": "assets/web.png",
+    "src": "assets/web.jpg",
     "alt": "SvelteKit frontend with Sanity data displaying"
   },
   "technologies": [
