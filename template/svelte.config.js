@@ -4,7 +4,14 @@ import adapter from '@sveltejs/adapter-vercel';
 const config = {
 	kit: {
 		target: '#svelte',
-		adapter: adapter()
+		adapter: adapter(),
+		vite: {
+			server: {
+				fs: {
+					allow: ['studio']
+				}
+			}
+		}
 	}
 };
 

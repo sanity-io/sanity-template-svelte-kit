@@ -4,3 +4,6 @@ node_modules
 /.svelte-kit
 /package
 .env
+
+# The studio will be built in static/studio, which shouldn't be commited
+/static/studio
