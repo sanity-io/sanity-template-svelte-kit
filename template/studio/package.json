@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "sanity-sapper-blog-studio",
+  "name": "sanity-svelte-kit-blog-studio",
   "version": "1.0.49",
   "main": "package.json",
   "author": "Sanity <hello@sanity.io>",
@@ -13,23 +13,23 @@
     "test": "sanity check"
   },
   "dependencies": {
-    "@sanity/base": "^2.22.0",
-    "@sanity/cli": "^2.22.0",
-    "@sanity/code-input": "^2.22.0",
+    "@sanity/base": "^2.22.3",
+    "@sanity/cli": "^2.22.3",
+    "@sanity/code-input": "^2.22.3",
     "@sanity/components": "^2.14.0",
-    "@sanity/core": "^2.22.0",
-    "@sanity/dashboard": "^2.22.0",
-    "@sanity/default-layout": "^2.22.0",
-    "@sanity/default-login": "^2.22.0",
-    "@sanity/desk-tool": "^2.22.2",
-    "@sanity/studio-hints": "^2.21.10",
-    "date-fns": "^1.30.1",
+    "@sanity/core": "^2.22.3",
+    "@sanity/dashboard": "^2.22.3",
+    "@sanity/default-layout": "^2.22.4",
+    "@sanity/default-login": "^2.22.3",
+    "@sanity/desk-tool": "^2.22.3",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-icons": "^3.11.0",
+    "sanity-plugin-asset-source-unsplash": "^0.1.5",
     "sanity-plugin-dashboard-widget-document-list": "^0.0.11",
-    "sanity-plugin-dashboard-widget-netlify": "^1.0.1"
+    "sanity-plugin-dashboard-widget-netlify": "^1.0.1",
+    "styled-components": "^5.2.0"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.3",

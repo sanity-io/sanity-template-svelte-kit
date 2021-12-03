@@ -1,25 +1,28 @@
-import {format} from 'date-fns'
+import { DocumentIcon } from '@sanity/icons'
 
 export default {
   name: 'post',
   type: 'document',
   title: 'Blog Post',
+  icon: DocumentIcon,
   fields: [
     {
       name: 'title',
       type: 'string',
       title: 'Title',
-      description: 'Titles should be catchy, descriptive, and not too long'
+      description: 'Titles should be catchy, descriptive, and not too long',
+      validation: Rule => Rule.required()
     },
     {
       name: 'slug',
       type: 'slug',
       title: 'Slug',
-      description: 'Some frontends will require a slug to be set to be able to show the post',
+      description: 'Address of this post in the website',
       options: {
         source: 'title',
         maxLength: 96
-      }
+      },
+      validation: Rule => Rule.required()
     },
     {
       name: 'publishedAt',
@@ -28,16 +31,9 @@ export default {
       description: 'This can be used to schedule post for publishing'
     },
     {
-      name: 'mainImage',
-      type: 'mainImage',
+      name: 'image',
+      type: 'image',
       title: 'Main image'
-    },
-    {
-      name: 'excerpt',
-      type: 'excerptPortableText',
-      title: 'Excerpt',
-      description:
-        'This ends up on summary pages, on Google, when people share your post in social media.'
     },
     {
       name: 'authors',
@@ -65,7 +61,65 @@ export default {
     {
       name: 'body',
       type: 'bodyPortableText',
-      title: 'Body'
+      type: 'array',
+      title: 'Post body',
+      of: [
+        {
+          type: 'block',
+          title: 'Block',
+          // Styles let you set what your user can mark up blocks with. These
+          // corrensponds with HTML tags, but you can set any title or value
+          // you want and decide how you want to deal with it where you want to
+          // use your content.
+          styles: [
+            { title: 'Normal', value: 'normal' },
+            { title: 'H1', value: 'h1' },
+            { title: 'H2', value: 'h2' },
+            { title: 'H3', value: 'h3' },
+            { title: 'H4', value: 'h4' },
+            { title: 'Quote', value: 'blockquote' }
+          ],
+          lists: [
+            { title: 'Bullet', value: 'bullet' },
+            { title: 'Numbered', value: 'number' }
+          ],
+          // Marks let you mark up inline text in the block editor.
+          marks: {
+            // Decorators usually describe a single property – e.g. a typographic
+            // preference or highlighting by editors.
+            decorators: [
+              { title: 'Strong', value: 'strong' },
+              { title: 'Emphasis', value: 'em' }
+            ],
+            // Annotations can be any object structure – e.g. a link or a footnote.
+            annotations: [
+              {
+                name: 'link',
+                type: 'object',
+                title: 'URL',
+                fields: [
+                  {
+                    title: 'URL',
+                    name: 'href',
+                    type: 'url'
+                  }
+                ]
+              }
+            ]
+          },
+          of: [{ type: 'authorReference' }]
+        },
+        // You can add additional types here. Note that you can't use
+        // primitive types such as 'string' and 'number' in the same array
+        // as a block type.
+        {
+          type: 'image',
+          options: { hotspot: true }
+        },
+        {
+          type: 'code'
+        }
+      ]
     }
   ],
   orderings: [
@@ -101,17 +155,15 @@ export default {
   preview: {
     select: {
       title: 'title',
-      publishedAt: 'publishedAt',
       slug: 'slug',
-      media: 'mainImage'
+      media: 'image'
     },
-    prepare ({title = 'No title', publishedAt, slug, media}) {
-      const dateSegment = format(publishedAt, 'YYYY/MM')
-      const path = `/${dateSegment}/${slug.current}/`
+    prepare({ title = 'No title', slug, media }) {
+      const path = `/blog/${slug.current}/`
       return {
         title,
         media,
-        subtitle: publishedAt ? path : 'Missing publishing date'
+        subtitle: path
       }
     }
   }
