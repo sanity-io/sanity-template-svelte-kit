@@ -11,7 +11,7 @@ export function getPostsQuery(extraFilter) {
   ] | order(publishedAt desc) {
     title,
     slug,
-    mainImage,
+    image,
     publishedAt,
   }`;
 }

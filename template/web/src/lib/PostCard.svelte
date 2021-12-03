@@ -8,9 +8,9 @@
 	<h2>
 		<a rel="prefetch" href="/blog/{post.slug.current}">{post.title}</a>
 	</h2>
-	{#if post.mainImage}
+	{#if post.image}
 		<div class="image">
-			<SanityImage image={post.mainImage} maxWidth={300} />
+			<SanityImage image={post.image} maxWidth={300} />
 		</div>
 	{/if}
 </article>

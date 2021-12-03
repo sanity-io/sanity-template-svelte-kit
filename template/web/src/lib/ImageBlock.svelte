@@ -5,7 +5,11 @@
 	$: ({ block } = portableText);
 </script>
 
-<figure>
-	<SanityImage image={block.image} />
-	<figcaption>{block.caption}</figcaption>
-</figure>
+{#if block.asset}
+	<figure>
+		<SanityImage image={block} />
+		{#if block.caption}
+			<figcaption>{block.caption}</figcaption>
+		{/if}
+	</figure>
+{/if}

@@ -50,8 +50,8 @@
 
 <hr />
 
-{#if post.mainImage}
-	<SanityImage image={post.mainImage} />
+{#if post.image}
+	<SanityImage image={post.image} />
 {/if}
 
 <PortableText
