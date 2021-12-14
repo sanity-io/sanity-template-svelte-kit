@@ -6,7 +6,7 @@
 		"build": "npm run build:sanity && pwd && npm run build:web",
 		"build:web": "svelte-kit build",
 		"preview:web": "svelte-kit preview",
-		"build:sanity": "cd studio && yarn && sanity build ../static/studio -y && cd ..",
+		"build:sanity": "cd studio && yarn && npx sanity build ../static/studio -y && cd ..",
 		"start:sanity": "cd studio && sanity start",
 		"lint": "prettier --ignore-path .gitignore --check --plugin-search-dir=. . && eslint --ignore-path .gitignore .",
 		"format": "prettier --ignore-path .gitignore --write --plugin-search-dir=. ."
