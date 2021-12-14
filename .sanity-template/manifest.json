@@ -60,6 +60,11 @@
 					"base": "studio",
 					"dir": "dist",
 					"cmd": "npm run build"
+				},
+				"previewMedia": {
+					"type": "image",
+					"src": ".sanity-template/studio.png",
+					"alt": "Screenshot of the Sanity studio shipped with this starter."
 				}
 			}
 		]
