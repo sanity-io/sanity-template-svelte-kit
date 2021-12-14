@@ -8,6 +8,8 @@ The template contains both a Sanity.io Sanity Studio and a front-end in Svelte K
 
 ![The Sanity and SvelteKit powered template](https://github.com/sanity-io/sanity-template-svelte-kit/blob/main/.sanity-template/web.jpg?raw=true)
 
+Want to make a template for Sanity and your favorite front-end framework? We’re still maturing [sanity.io/create](https://sanity.io/create) and our APIs, but do tell us about it on [slack.sanity.io](https://slack.sanity.io).
+
 ## Local development
 
 ### Developing the front-end
