@@ -1,6 +1,34 @@
-# <#< repository.name >#>-web
+# SvelteKit / Sanity.io starter
 
-Front-end for your Sanity project, built with [Svelte Kit](https://kit.svelte.dev).
+_Front-end for your Sanity project, built with [Svelte Kit](https://kit.svelte.dev)._
+
+This template repo is used by Sanity.io to easily create deployed and configured projects through a web interface. You can test it by **[creating this project](https://www.sanity.io/create?sanity-io%2Fsanity-template-svelte-kit)**.
+
+The template contains both a Sanity.io Sanity Studio and a front-end in Svelte Kit. Both are deployed on Netlify.
+
+![The Sanity and SvelteKit powered template](https://github.com/sanity-io/sanity-template-svelte-kit/blob/main/.sanity-template/web.jpg?raw=true)
+
+## Local development
+
+### Developing the front-end
+
+1. Install dependencies with `npm install` or `yarn` in the root folder.
+1. Run `npm run dev` in root folder.
+1. The website will be running in `localhost:3000`
+
+### Developing the Sanity studio
+
+1. From the `studio` folder, install dependencies with `yarn` or `sanity install` (if you have the [Sanity CLI installed](https://www.sanity.io/docs/getting-started-with-sanity-cli))
+1. Then, run `yarn start`
+1. Your studio will be running in `localhost:3333`
+
+## Starting with the local template
+
+If you don't want to start from the [automatically deployed project](https://www.sanity.io/create?sanity-io%2Fsanity-template-svelte-kit), you can clone this repository and replace the variables found in `studio/sanity.json` with your Sanity project's credentials.
+
+## Credits
+
+Huge thanks to [Jacob Størdahl](https://github.com/stordahl) for their help in scoping and bringing this starter to life with a lot of positive energy. Thank you, Jacob 🙏
 
 ## Developing
 
