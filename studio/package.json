@@ -6,7 +6,8 @@
 	"author": "Sanity <hello@sanity.io>",
 	"scripts": {
 		"dev": "sanity start",
-		"build": "sanity build",
+		"build": "sanity build && npm run copy-redirects",
+		"copy-redirects": "cpy _redirects dist",
 		"graphql-deploy": "sanity graphql deploy --playground",
 		"test": "sanity check"
 	},
@@ -27,5 +28,8 @@
 		"sanity-plugin-dashboard-widget-document-list": "^0.0.13",
 		"sanity-plugin-dashboard-widget-netlify": "^1.2.1",
 		"styled-components": "^5.3.3"
+	},
+	"devDependencies": {
+		"cpy-cli": "^3.1.1"
 	}
 }
