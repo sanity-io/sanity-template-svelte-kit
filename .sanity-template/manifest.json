@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "title": "SvelteKit blog",
-  "description": "Fully customizable blog template with a Svelte.js front-end.",
+  "title": "SvelteKit starter",
+  "description": "A minimal, fully customizable SvelteKit front-end powered by Sanity.io data.",
   "previewMedia": {
     "type": "image",
     "src": "assets/web.jpg",
