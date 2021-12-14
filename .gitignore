@@ -1,6 +1,10 @@
+.DS_Store
 node_modules
-.svelte-kit
-.vercel_build_output
 /build
-yarn.lock
-package-lock.json
+/.svelte-kit
+/package
+.env
+template-values.json
+
+# The studio will be built in static/studio, which shouldn't be commited
+/static/studio
