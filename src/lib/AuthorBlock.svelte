@@ -1,11 +1,11 @@
 <script>
-	import AuthorCard from './AuthorCard.svelte';
+  import AuthorCard from './AuthorCard.svelte'
 
-	export let portableText;
+  export let portableText
 
-	$: ({ author } = portableText.block);
+  $: ({author} = portableText.block)
 </script>
 
 {#if author}
-	<AuthorCard {author} />
+  <AuthorCard {author} />
 {/if}

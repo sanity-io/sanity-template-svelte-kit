@@ -3,7 +3,7 @@
  * As your schema evolves, this pattern will be useful to keep your data in sync across all surfaces.
  */
 export function getPostsQuery(extraFilter) {
-	return /* groq */ `*[
+  return /* groq */ `*[
     _type == "post" &&
     defined(slug.current) &&
     publishedAt < now()
@@ -13,7 +13,7 @@ export function getPostsQuery(extraFilter) {
     slug,
     image,
     publishedAt,
-  }`;
+  }`
 }
 
 /**
@@ -24,4 +24,4 @@ export const AUTHOR_CARD_FRAGMENT = `
 name,
 slug,
 image,
-`;
+`

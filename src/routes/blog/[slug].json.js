@@ -1,9 +1,9 @@
-import { AUTHOR_CARD_FRAGMENT } from '$lib/queries';
-import { client } from '$lib/sanityClient';
+import {AUTHOR_CARD_FRAGMENT} from '$lib/queries'
+import {client} from '$lib/sanityClient'
 
 // Gets a specific blog post from its slug.current value
-export async function get({ params: { slug } }) {
-	const post = await client.fetch(/* groq */ `*[_type == "post" && slug.current == "${slug}"][0]{
+export async function get({params: {slug}}) {
+  const post = await client.fetch(/* groq */ `*[_type == "post" && slug.current == "${slug}"][0]{
     ...,
 		"authors": authors[].author->{
 			${AUTHOR_CARD_FRAGMENT}
@@ -21,19 +21,19 @@ export async function get({ params: { slug } }) {
 				}
 			}
     }
-  }`);
+  }`)
 
-	if (post) {
-		return {
-			status: 200,
-			body: {
-				post
-			}
-		};
-	}
+  if (post) {
+    return {
+      status: 200,
+      body: {
+        post
+      }
+    }
+  }
 
-	return {
-		status: 500,
-		body: new Error('Internal Server Error')
-	};
+  return {
+    status: 500,
+    body: new Error('Internal Server Error')
+  }
 }

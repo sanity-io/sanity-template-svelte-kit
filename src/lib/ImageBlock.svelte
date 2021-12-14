@@ -1,15 +1,15 @@
 <script>
-	import SanityImage from './SanityImage.svelte';
+  import SanityImage from './SanityImage.svelte'
 
-	export let portableText;
-	$: ({ block } = portableText);
+  export let portableText
+  $: ({block} = portableText)
 </script>
 
 {#if block.asset}
-	<figure>
-		<SanityImage image={block} />
-		{#if block.caption}
-			<figcaption>{block.caption}</figcaption>
-		{/if}
-	</figure>
+  <figure>
+    <SanityImage image={block} />
+    {#if block.caption}
+      <figcaption>{block.caption}</figcaption>
+    {/if}
+  </figure>
 {/if}

@@ -1,4 +1,4 @@
-import { TagIcon } from '@sanity/icons'
+import {TagIcon} from '@sanity/icons'
 
 export default {
   name: 'category',
@@ -10,7 +10,7 @@ export default {
       name: 'title',
       type: 'string',
       title: 'Title',
-      validation: Rule => Rule.required()
+      validation: (Rule) => Rule.required()
     },
     {
       name: 'description',

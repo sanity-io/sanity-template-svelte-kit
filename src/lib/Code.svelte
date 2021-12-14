@@ -1,7 +1,7 @@
 <script>
-	export let portableText;
+  export let portableText
 
-	$: block = portableText.block;
+  $: block = portableText.block
 </script>
 
 <pre>

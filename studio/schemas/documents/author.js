@@ -1,4 +1,4 @@
-import { UserIcon } from '@sanity/icons'
+import {UserIcon} from '@sanity/icons'
 
 export default {
   name: 'author',
@@ -10,7 +10,7 @@ export default {
       name: 'name',
       type: 'string',
       title: 'Name',
-      validation: Rule => Rule.required()
+      validation: (Rule) => Rule.required()
     },
     {
       name: 'slug',
@@ -21,7 +21,7 @@ export default {
         source: 'name',
         maxLength: 96
       },
-      validation: Rule => Rule.required()
+      validation: (Rule) => Rule.required()
     },
     {
       name: 'image',
@@ -37,7 +37,7 @@ export default {
           type: 'string',
           title: 'Alternative text',
           description: 'Important for SEO and accessiblity.',
-          validation: Rule => Rule.error('You have to fill out the alternative text.').required(),
+          validation: (Rule) => Rule.error('You have to fill out the alternative text.').required(),
           options: {
             isHighlighted: true
           }
@@ -53,13 +53,13 @@ export default {
           type: 'block',
           title: 'Block',
           // Only allow paragraphs to be written in the bio
-          styles: [{ title: 'Normal', value: 'normal' }],
+          styles: [{title: 'Normal', value: 'normal'}],
           lists: [],
           marks: {
             decorators: [
-              { title: 'Strong', value: 'strong' },
-              { title: 'Emphasis', value: 'em' },
-              { title: 'Code', value: 'code' }
+              {title: 'Strong', value: 'strong'},
+              {title: 'Emphasis', value: 'em'},
+              {title: 'Code', value: 'code'}
             ]
           }
         }
