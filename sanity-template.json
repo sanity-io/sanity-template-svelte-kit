@@ -1,0 +1,37 @@
+{
+  "version": 2,
+  "title": "SvelteKit starter",
+  "description": "A minimal, fully customizable SvelteKit front-end powered by Sanity.io data.",
+  "previewMedia": {
+    "type": "image",
+    "src": "assets/web.jpg",
+    "alt": "SvelteKit frontend with Sanity data displaying"
+  },
+  "technologies": [
+    {
+      "id": "vercel",
+      "name": "Vercel",
+      "url": "https://vercel.com/"
+    },
+    {
+      "id": "svelte",
+      "name": "Svelte",
+      "url": "https://svelte.dev"
+    },
+    {
+      "id": "sveltekit",
+      "name": "SvelteKit",
+      "url": "https://kit.svelte.dev"
+    }
+  ],
+  "deployment": {
+    "provider": "vercel",
+    "studio": { "basePath": "/studio" },
+    "corsOrigins": [
+      {
+        "origin": "http://localhost:3000",
+        "allowCredentials": true
+      }
+    ]
+  }
+}
