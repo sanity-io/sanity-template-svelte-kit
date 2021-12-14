@@ -1,47 +1,31 @@
 {
-  "private": true,
-  "name": "sanity-svelte-kit-blog-studio",
-  "version": "1.0.49",
-  "main": "package.json",
-  "author": "Sanity <hello@sanity.io>",
-  "scripts": {
-    "dev": "sanity start",
-    "format": "prettier-eslint --write \"**/*.js\" \"!node_modules/**\"",
-    "build": "sanity build",
-    "graphql-deploy": "sanity graphql deploy --playground",
-    "lint": "eslint .",
-    "test": "sanity check"
-  },
-  "dependencies": {
-    "@sanity/base": "^2.22.3",
-    "@sanity/cli": "^2.22.3",
-    "@sanity/code-input": "^2.22.3",
-    "@sanity/components": "^2.14.0",
-    "@sanity/core": "^2.22.3",
-    "@sanity/dashboard": "^2.22.3",
-    "@sanity/default-layout": "^2.22.4",
-    "@sanity/default-login": "^2.22.3",
-    "@sanity/desk-tool": "^2.22.3",
-    "@sanity/vision": "^2.22.3",
-    "prop-types": "^15.7.2",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-icons": "^3.11.0",
-    "sanity-plugin-asset-source-unsplash": "^0.1.5",
-    "sanity-plugin-dashboard-widget-document-list": "^0.0.11",
-    "sanity-plugin-dashboard-widget-netlify": "^1.0.1",
-    "styled-components": "^5.2.0"
-  },
-  "devDependencies": {
-    "babel-eslint": "^10.0.3",
-    "eslint": "^6.7.2",
-    "eslint-config-standard": "^14.1.0",
-    "eslint-config-standard-react": "^9.2.0",
-    "eslint-plugin-import": "^2.19.1",
-    "eslint-plugin-node": "^10.0.0",
-    "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-react": "^7.19.0",
-    "eslint-plugin-standard": "^4.0.1",
-    "prettier-eslint-cli": "^5.0.0"
-  }
+	"private": true,
+	"name": "sanity-svelte-kit-studio",
+	"version": "1.0.0",
+	"main": "package.json",
+	"author": "Sanity <hello@sanity.io>",
+	"scripts": {
+		"dev": "sanity start",
+		"build": "sanity build",
+		"graphql-deploy": "sanity graphql deploy --playground",
+		"test": "sanity check"
+	},
+	"dependencies": {
+		"@sanity/base": "^2.23.1",
+		"@sanity/cli": "^2.23.1",
+		"@sanity/code-input": "^2.23.1",
+		"@sanity/components": "^2.14.0",
+		"@sanity/core": "^2.23.1",
+		"@sanity/dashboard": "^2.23.1",
+		"@sanity/default-layout": "^2.23.1",
+		"@sanity/default-login": "^2.23.1",
+		"@sanity/desk-tool": "^2.23.1",
+		"@sanity/vision": "^2.23.1",
+		"react": "^17.0.2",
+		"react-dom": "^17.0.2",
+		"sanity-plugin-asset-source-unsplash": "^0.1.5",
+		"sanity-plugin-dashboard-widget-document-list": "^0.0.13",
+		"sanity-plugin-dashboard-widget-netlify": "^1.2.1",
+		"styled-components": "^5.3.3"
+	}
 }

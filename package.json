@@ -13,18 +13,18 @@
 	},
 	"devDependencies": {
 		"@portabletext/svelte": "^0.2.0",
-		"@sveltejs/adapter-vercel": "^1.0.0-next.31",
-		"@sveltejs/kit": "next",
-		"eslint": "^7.32.0",
+		"@sveltejs/adapter-vercel": "^1.0.0-next.32",
+		"@sveltejs/kit": "1.0.0-next.202",
+		"eslint": "^8.4.1",
 		"eslint-config-prettier": "^8.3.0",
 		"eslint-plugin-svelte3": "^3.2.1",
-		"prettier": "^2.4.1",
-		"prettier-plugin-svelte": "^2.4.0",
+		"prettier": "^2.5.1",
+		"prettier-plugin-svelte": "^2.5.1",
 		"svelte": "^3.42.6"
 	},
 	"type": "module",
 	"dependencies": {
-		"@sanity/client": "^2.21.10",
+		"@sanity/client": "^2.23.0",
 		"@sanity/image-url": "^1.0.1"
 	}
 }
