@@ -25,12 +25,42 @@
 		}
 	],
 	"deployment": {
-		"provider": "vercel",
-		"studio": { "basePath": "/studio" },
-		"corsOrigins": [
+		"provider": "netlify",
+		"sites": [
 			{
-				"origin": "http://localhost:3000",
-				"allowCredentials": true
+				"id": "site",
+				"type": "web",
+				"title": "SvelteKit front-end",
+				"description": "Where your content will appear",
+				"dir": "/",
+				"buildSettings": {
+					"base": ".",
+					"dir": "build",
+					"cmd": "npm run build"
+				},
+				"previewMedia": {
+					"type": "image",
+					"src": ".sanity-template/web.jpg",
+					"alt": "SvelteKit frontend pulling content from Sanity."
+				},
+				"requiredCorsOrigins": [
+					{
+						"origin": "http://localhost:3000",
+						"allowCredentials": true
+					}
+				]
+			},
+			{
+				"id": "site",
+				"type": "studio",
+				"title": "Sanity Studio",
+				"description": "The Sanity Studio is where you edit and structure your content.",
+				"dir": "studio",
+				"buildSettings": {
+					"base": "studio",
+					"dir": "dist",
+					"cmd": "npm run build"
+				}
 			}
 		]
 	}

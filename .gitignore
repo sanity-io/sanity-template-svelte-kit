@@ -4,8 +4,7 @@ node_modules
 /.svelte-kit
 /package
 .env
-template-values.json
+.netlify
 
 # The studio will be built in static/studio, which shouldn't be commited
 /static/studio
-.vercel_build_output
