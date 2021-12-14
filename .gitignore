@@ -1,3 +1,10 @@
-build
-template-values.json
+.DS_Store
 node_modules
+/build
+/.svelte-kit
+/package
+.env
+template-values.json
+
+# The studio will be built in static/studio, which shouldn't be commited
+/static/studio
