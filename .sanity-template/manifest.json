@@ -9,11 +9,6 @@
 	},
 	"technologies": [
 		{
-			"id": "vercel",
-			"name": "Vercel",
-			"url": "https://vercel.com/"
-		},
-		{
 			"id": "svelte",
 			"name": "Svelte",
 			"url": "https://svelte.dev"
@@ -22,6 +17,11 @@
 			"id": "sveltekit",
 			"name": "SvelteKit",
 			"url": "https://kit.svelte.dev"
+		},
+		{
+			"id": "netlify",
+			"name": "Netlify",
+			"url": "https://netlify.com/"
 		}
 	],
 	"deployment": {
@@ -51,7 +51,7 @@
 				]
 			},
 			{
-				"id": "site",
+				"id": "studio",
 				"type": "studio",
 				"title": "Sanity Studio",
 				"description": "The Sanity Studio is where you edit and structure your content.",
