@@ -2,7 +2,7 @@
 
 _Front-end for your Sanity project, built with [Svelte Kit](https://kit.svelte.dev)._
 
-This template repo is used by Sanity.io to easily create deployed and configured projects through a web interface. You can test it by **[creating this project](https://www.sanity.io/create?sanity-io%2Fsanity-template-svelte-kit)**.
+This template repo is used by Sanity.io to easily create deployed and configured projects through a web interface. You can test it by **[creating this project](https://www.sanity.io/create?template=sanity-io%2Fsanity-template-svelte-kit)**.
 
 The template contains both a Sanity.io Sanity Studio and a front-end in Svelte Kit. Both are deployed on Netlify.
 
