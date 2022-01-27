@@ -19,7 +19,7 @@
 
   let imageRef
   // Once loaded, the image will transition to full opacity
-  $: loaded = false
+  let loaded = false
 
   onMount(() => {
     imageRef.onload = () => {
