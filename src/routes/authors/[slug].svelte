@@ -1,7 +1,7 @@
 <script context="module">
-  export async function load({page, fetch}) {
+  export async function load({ params, fetch }) {
     try {
-      const url = `/authors/${page.params.slug}.json`
+      const url = `/authors/${params.slug}.json`
       const res = await fetch(url)
       const {author} = await res.json()
 
