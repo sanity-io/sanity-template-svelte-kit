@@ -22,7 +22,6 @@ export async function get({params: {slug}}) {
   }
 
   return {
-    status: 500,
-    body: new Error('Internal Server Error')
+    status: 404
   }
 }

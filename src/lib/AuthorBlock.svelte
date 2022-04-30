@@ -3,7 +3,7 @@
 
   export let portableText
 
-  $: ({author} = portableText.block)
+  $: ({author} = portableText.value)
 </script>
 
 {#if author}

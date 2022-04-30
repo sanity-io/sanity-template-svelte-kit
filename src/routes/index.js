@@ -18,7 +18,6 @@ export async function get() {
   }
 
   return {
-    status: 500,
-    body: new Error('Internal Server Error')
+    status: 404
   }
 }

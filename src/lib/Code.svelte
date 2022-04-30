@@ -1,10 +1,10 @@
 <script>
   export let portableText
 
-  $: block = portableText.block
+  $: value = portableText.value
 </script>
 
 <pre>
-  <!-- If you want syntax highlighting on you code blocks, load PrismJs.com in your __layout.svelte 😉 -->
-  <code class="language-{block.language}">{block.code}</code>
+  <!-- If you want syntax highlighting on you code values, load PrismJs.com in your __layout.svelte 😉 -->
+  <code class="language-{value.language}">{value.code}</code>
 </pre>
