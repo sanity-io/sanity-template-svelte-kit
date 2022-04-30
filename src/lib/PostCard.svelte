@@ -20,6 +20,8 @@
     display: flex;
     /* Show images first */
     flex-direction: column-reverse;
+    /* Align cards */
+    align-self: start;
   }
 
   h2 {

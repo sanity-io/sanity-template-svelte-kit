@@ -39,7 +39,7 @@
   />
 {/if}
 
-<!-- some optional styles to make image loading look nicer -->
+<!-- some optional effects to make image loading look nicer -->
 <style>
   img {
     opacity: 0;
