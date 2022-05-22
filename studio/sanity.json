@@ -1,11 +1,11 @@
 {
   "root": true,
-  "project": {
-    "name": "<#< sanity.projectTitle >#>"
-  },
   "api": {
-    "projectId": "<#< sanity.projectId >#>",
-    "dataset": "<#< sanity.dataset >#>"
+    "projectId": "tgdufnkq",
+    "dataset": "production"
+  },
+  "project": {
+    "name": "kelseyleaphotography"
   },
   "plugins": [
     "@sanity/base",
@@ -15,13 +15,15 @@
     "@sanity/dashboard",
     "@sanity/desk-tool",
     "dashboard-widget-document-list",
-    "dashboard-widget-netlify",
+    "dashboard-widget-vercel",
     "@sanity/code-input",
     "asset-source-unsplash"
   ],
   "env": {
     "development": {
-      "plugins": ["@sanity/vision"]
+      "plugins": [
+        "@sanity/vision"
+      ]
     }
   },
   "parts": [

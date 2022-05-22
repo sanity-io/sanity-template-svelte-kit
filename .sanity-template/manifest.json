@@ -19,19 +19,19 @@
       "url": "https://kit.svelte.dev"
     },
     {
-      "id": "netlify",
-      "name": "Netlify",
-      "url": "https://netlify.com/"
+      "id": "vercel",
+      "name": "Vercel",
+      "url": "https://vercel.com/"
     }
   ],
   "deployment": {
-    "provider": "netlify",
+    "provider": "vercel",
     "sites": [
       {
         "id": "site",
         "type": "web",
-        "title": "SvelteKit front-end",
-        "description": "Where your content will appear",
+        "title": "Kelsey Lea Photography",
+        "description": "Photography portfolio of Kelsey Lea",
         "dir": "/",
         "buildSettings": {
           "base": ".",

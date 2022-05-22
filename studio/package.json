@@ -6,10 +6,11 @@
   "author": "Sanity <hello@sanity.io>",
   "scripts": {
     "dev": "sanity start",
-    "build": "sanity build && npm run copy-redirects",
     "copy-redirects": "cpy _redirects dist",
     "graphql-deploy": "sanity graphql deploy --playground",
-    "test": "sanity check"
+    "start": "sanity start",
+    "test": "sanity check",
+    "build": "sanity build public -y"
   },
   "dependencies": {
     "@sanity/base": "^2.23.1",
@@ -24,9 +25,9 @@
     "@sanity/vision": "^2.23.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "sanity-plugin-asset-source-unsplash": "^0.1.5",
+    "sanity-plugin-asset-source-unsplash": "^0.2.1",
     "sanity-plugin-dashboard-widget-document-list": "^0.0.13",
-    "sanity-plugin-dashboard-widget-netlify": "^1.2.1",
+    "sanity-plugin-dashboard-widget-vercel": "^1.1.1",
     "styled-components": "^5.3.3"
   },
   "devDependencies": {
