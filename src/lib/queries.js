@@ -2,9 +2,9 @@
  * Example of how you could re-use GROQ queries across different contexts with Javascript.
  * As your schema evolves, this pattern will be useful to keep your data in sync across all surfaces.
  */
-export function getPostsQuery(extraFilter) {
+export function getPhotosQuery(extraFilter) {
   return /* groq */ `*[
-    _type == "post" &&
+    _type == "photo" &&
     defined(slug.current) &&
     publishedAt < now()
     ${extraFilter ? `&& ${extraFilter}` : ''}
@@ -13,6 +13,17 @@ export function getPostsQuery(extraFilter) {
     slug,
     image,
     publishedAt,
+  }`
+}
+
+export function getAlbumsQuery(extraFilter) {
+  return /* groq */ `*[
+    _type == "album" &&
+    defined(slug.current)
+    ${extraFilter ? `&& ${extraFilter}` : ''}
+  ] | order(publishedAt desc) {
+    title,
+    slug,
   }`
 }
 
