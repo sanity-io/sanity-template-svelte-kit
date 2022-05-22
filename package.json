@@ -1,5 +1,5 @@
 {
-  "name": "sveltekit-sanity-template",
+  "name": "kelseyleaphotography",
   "version": "0.0.1",
   "scripts": {
     "dev": "svelte-kit dev",
@@ -12,18 +12,17 @@
   },
   "devDependencies": {
     "@portabletext/svelte": "^0.2.0",
-    "@sveltejs/adapter-netlify": "^1.0.0-next.36",
-    "@sveltejs/kit": "1.0.0-next.202",
-    "eslint": "^8.4.1",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-svelte3": "^3.2.1",
-    "prettier": "^2.5.1",
-    "prettier-plugin-svelte": "^2.5.1",
-    "svelte": "^3.42.6"
+    "@sveltejs/kit": "^1.0.0-next.202",
+    "eslint": "^8.16.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-svelte3": "^3.4.1",
+    "prettier": "^2.6.2",
+    "prettier-plugin-svelte": "^2.7.0",
+    "svelte": "^3.48.0"
   },
   "type": "module",
   "dependencies": {
-    "@sanity/client": "^2.23.0",
+    "@sanity/client": "^2.23.2",
     "@sanity/image-url": "^1.0.1"
   }
 }
