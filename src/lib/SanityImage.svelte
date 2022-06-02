@@ -1,5 +1,7 @@
 <script>
   import {urlFor} from './sanityClient'
+  import {onMount} from 'svelte'
+  import {browser} from '$app/env'
 
   export let image
   export let maxWidth = 1200
@@ -15,16 +17,35 @@
 
   $: aspectRatio = width / height
 
+  let imageRef
   // Once loaded, the image will transition to full opacity
   let loaded = false
+
+  onMount(() => {
+    imageRef.onload = () => {
+      loaded = true
+    }
+  })
 </script>
 
-{#if image}
+{#if browser && image}
   <img
     loading="lazy"
     src={urlFor(image).width(maxWidth).fit('fillmax')}
     alt={alt || image.alt || ''}
-    style="aspect-ratio: {aspectRatio}; opacity: {loaded ? 1 : 0}; transition: .2s opacity;"
-    on:load={() => (loaded = true)}
+    class:loaded
+    bind:this={imageRef}
+    style="aspect-ratio: {aspectRatio};"
   />
 {/if}
+
+<!-- some optional effects to make image loading look nicer -->
+<style>
+  img {
+    opacity: 0;
+    transition: opacity 500ms ease-out;
+  }
+  img.loaded {
+    opacity: 1;
+  }
+</style>

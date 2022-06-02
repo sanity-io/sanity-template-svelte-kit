@@ -10,6 +10,7 @@ import category from './documents/category'
 import post from './documents/post'
 
 // Object types
+import portableText from './objects/portableText'
 import authorReference from './objects/authorReference'
 
 // Then we give our schema to the builder and provide the result to Sanity
@@ -27,6 +28,7 @@ export default createSchema({
 
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
-    authorReference
+    portableText,
+    authorReference,
   ])
 })

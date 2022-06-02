@@ -1,28 +1,5 @@
-<script context="module">
-  export async function load({page, fetch}) {
-    try {
-      const url = `/authors/${page.params.slug}.json`
-      const res = await fetch(url)
-      const {author} = await res.json()
-
-      if (author) {
-        return {
-          props: {
-            author
-          }
-        }
-      }
-    } catch (err) {
-      return {
-        status: 500,
-        error: new Error(`Could not load url`)
-      }
-    }
-  }
-</script>
-
 <script>
-  import PortableText from '@portabletext/svelte'
+  import {PortableText} from '@portabletext/svelte'
   import Code from '$lib/Code.svelte'
   import Link from '$lib/Link.svelte'
   import ImageBlock from '$lib/ImageBlock.svelte'
@@ -41,8 +18,8 @@
 
 {#if author?.bio}
   <PortableText
-    blocks={author.bio}
-    serializers={{
+    value={author.bio}
+    components={{
       types: {
         code: Code,
         image: ImageBlock,
