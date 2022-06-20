@@ -40,15 +40,15 @@
 
     background: linear-gradient(
       to bottom,
-      var(--dark) calc(25% + 1rem),
-      transparent calc(25% + 1rem)
+      var(--dark) calc(25% + var(--space-1)),
+      transparent calc(25% + var(--space-1))
     );
   }
 
   a#logo {
     position: relative;
     display: inline-block;
-    padding: 1rem 4rem 1rem 1rem;
+    padding: var(--space-1) 4rem var(--space-1) var(--space-1);
     overflow: hidden;
     color: var(--dark);
   }
@@ -80,8 +80,8 @@
   ul {
     display: flex;
     justify-content: flex-end;
-    gap: 0.5rem;
-    padding: 1rem;
+    gap: calc(var(--space-1) / 2);
+    padding: var(--space-1);
   }
 
   li {
@@ -111,8 +111,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 1rem;
-    padding: 1rem 0rem 1rem 0rem;
+    gap: var(--space-1);
+    padding: var(--space-1) 0rem var(--space-1) 0rem;
 
     background: var(--dark);
     border-bottom: 2px var(--light) solid;
@@ -122,7 +122,7 @@
 
   #mobile-menu button {
     align-self: flex-end;
-    margin-right: 1rem;
+    margin-right: var(--space-1);
   }
 
   #mobile-menu.open {
