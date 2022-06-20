@@ -1,43 +1,11 @@
-.shapedividers_com-958 {
-  overflow: hidden;
-  position: relative;
-}
-.shapedividers_com-958::before {
-  content: '';
-  font-family: 'shape divider from ShapeDividers.com';
-  position: absolute;
-  bottom: -1px;
-  left: -1px;
-  right: -1px;
-  top: -1px;
-  z-index: 3;
-  pointer-events: none;
-  background-repeat: no-repeat;
-  background-size: 100% 40px;
-  background-position: 50% 100%;
-  background-image: url('data:image/svg+xml;charset=utf8, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 35.28 2.17" preserveAspectRatio="none"><path d="M35.28 1.67c-3.07-.55-9.27.41-16.15 0-6.87-.4-13.74-.58-19.13.1v.4h35.28z" fill="%23f5f5f5"/><path d="M35.28 1.16c-3.17-.8-7.3.4-10.04.56-2.76.17-9.25-1.47-12.68-1.3-3.42.16-4.64.84-7.04.86C3.12 1.31 0 .4 0 .4v1.77h35.28z" opacity=".5" fill="%23f5f5f5"/><path d="M35.28.31c-2.57.84-7.68.3-11.8.43-4.1.12-6.85.61-9.57.28C11.18.69 8.3-.16 5.3.02 2.3.22.57.85 0 .87v1.2h35.28z" opacity=".5" fill="%23f5f5f5"/></svg>');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Josefin+Sans:ital,wght@0,100;0,400;0,700;1,100;1,400;1,700&display=swap');
+
+:root {
+  --light: #f5f5f5;
+  --dark: #36454f;
 }
 
-@media (min-width: 768px) {
-  .shapedividers_com-958::before {
-    background-size: 100% 40px;
-    background-position: 50% 100%;
-  }
-}
-
-@media (min-width: 1025px) {
-  .shapedividers_com-958::before {
-    bottom: -0.1vw;
-    left: -0.1vw;
-    right: -0.1vw;
-    top: -0.1vw;
-    background-size: 100% 50px;
-    background-position: 50% 100%;
-    background-image: url('data:image/svg+xml;charset=utf8, <svg preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100"><g fill="%23f5f5f5"><path d="M907 83c-55 6-97-5-109-8-44-12-44-24-101-43-36-13-63-22-97-21-46 2-81 21-100 33-19-12-54-31-100-33-34-1-61 8-97 21-57 20-57 31-101 43-12 3-54 14-109 8A306 306 0 010 59v43h1000V59a306 306 0 01-93 24z"/><path d="M50 64s76 32 155-2c0 0-65 21-155 2z" opacity=".5"/><path d="M80 56s47 20 95-1c0 0-40 13-95 1z" opacity=".3"/><path d="M801 64s76 32 155-2c0 0-65 21-155 2z" opacity=".5"/><path d="M831 56s47 20 95-1c0 0-40 13-95 1z" opacity=".3"/></g></svg>');
-  }
-}
-@media (min-width: 2100px) {
-  .shapedividers_com-958::before {
-    background-size: 100% calc(2vw + 50px);
-  }
+body {
+  font-family: 'Dancing Script', cursive;
+  font-family: 'Josefin Sans', sans-serif;
 }
