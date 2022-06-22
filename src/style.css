@@ -2,17 +2,58 @@
 
 :root {
   --light: #f5f5f5;
-  --dark: #36454f;
+
+  --dark: rgba(54, 69, 79, 1);
+  --dark-25: rgba(54, 69, 79, 0.25);
+  --dark-hover: rgba(31, 39, 46, 1);
+  --dark-active: rgba(72, 90, 106, 1);
+
+  --font-big: 1.25rem;
+  --font-large: 1.5rem;
+  --font-larger: 2rem;
+  --font-largest: 3rem;
+
+  --font-accent: 'Dancing Script', cursive;
+  --font: 'Josefin Sans', sans-serif;
 
   --space-1: 1rem;
-}
+  --space-2: 1.5rem;
+  --space-3: 2rem;
+  --space-4: 3rem;
+  --space-5: 4rem;
+  --space-6: 5rem;
 
-/* 
-  Accent: 
-  font-family: 'Dancing Script', cursive;
- */
+  --br: 2px;
+
+  --shadow: 0px 2px 4px var(--dark);
+  --shadow-25: 0px 2px 4px var(--dark-25);
+  --shadow-inset: inset 0px 0px 4px var(--dark);
+  --shadow-inset-25: inset 0px 0px 4px var(--dark-25);
+}
 
 body * {
   font-size: 16px;
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: var(--font);
+  color: inherit;
+}
+
+p {
+  font-weight: 300;
+}
+
+strong {
+  font-weight: 700;
+}
+
+p,
+span,
+button,
+a,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: inherit;
 }

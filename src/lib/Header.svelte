@@ -40,9 +40,13 @@
 
     background: linear-gradient(
       to bottom,
-      var(--dark) calc(25% + var(--space-1)),
+      var(--dark-hover) calc(25% + var(--space-2)),
       transparent calc(25% + var(--space-1))
     );
+
+    z-index: 1;
+
+    -webkit-appearance: none;
   }
 
   a#logo {
@@ -60,14 +64,14 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: var(--dark);
+    background: var(--dark-hover);
     -webkit-transform-origin: 100% 0;
     -ms-transform-origin: 100% 0;
     transform-origin: 100% 0;
     -webkit-transform: skew(-20deg);
     -ms-transform: skew(-20deg);
     transform: skew(-20deg);
-    z-index: -1;
+    z-index: 1;
   }
 
   img {
@@ -75,6 +79,8 @@
     max-width: clamp(200px, 100px, 100vw);
     height: auto;
     filter: invert(100%);
+    position: relative;
+    z-index: 2;
   }
 
   ul {
@@ -114,10 +120,12 @@
     gap: var(--space-1);
     padding: var(--space-1) 0rem var(--space-1) 0rem;
 
-    background: var(--dark);
+    background: var(--dark-hover);
     border-bottom: 2px var(--light) solid;
 
     color: var(--light);
+
+    z-index: 3;
   }
 
   #mobile-menu button {
