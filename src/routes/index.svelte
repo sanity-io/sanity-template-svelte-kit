@@ -13,6 +13,8 @@
 </script>
 
 <script>
+  import About from '../lib/About.svelte'
+
   // import AuthorCard from '$lib/AuthorCard.svelte'
   // import PostsGrid from '$lib/PostsGrid.svelte'
 
@@ -28,60 +30,47 @@
 <Header />
 
 <main>
-  <section id="photo">
+  <div id="photo">
     <div id="controls">
       <button>&larr;</button>
       <a href="/">View Album</a>
       <button>&rarr;</button>
     </div>
-  </section>
-  <div id="about">
-    <section class="bio bio-light" id="bio">
-      <h2>Dedicated to bringing your special <br /> moments to life.</h2>
-      <p>
-        Born and raised in Moose Jaw, SK, I started my photography journey with my first DSLR camera
-        at 15 years of age. After pursuing a Bachelors degree in Calgary, AB, I have realized that
-        being both in Alberta and Saskatchewan is what I am destined to do!
-      </p>
-    </section>
-    <section class="bio bio-dark" id="bio-travel">
-      <p>
-        I am always willing to go the distance to capture your family photos, ranching, agriculture,
-        portraits, boudoir, wedding, and anything you can dream of, I am here to help!
-      </p>
-      <h2>Travel is my passion.</h2>
-    </section>
-    <img src="/temp/child.jpeg" alt="photographer portrait" />
   </div>
+  <About />
   <section class="bio bio-light">
-    <p>
-      <strong> Check out my work</strong> and <strong>get in touch</strong> with me to schedule your
-      shoot today.
-    </p>
+    <div>
+      <p>
+        <strong> Check out my work</strong> and <strong>get in touch</strong> with <br /> me to schedule
+        your shoot today.
+      </p>
+    </div>
   </section>
   <section class="bio bio-light" id="contact">
-    <form on:submit|preventDefault={() => console.log('submitted')} id="contactform">
-      <div class="form-group">
-        <label for="name">Name</label>
-        <input type="text" class="form-control" id="name" placeholder="Name" />
-      </div>
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" class="form-control" id="email" placeholder="Email" />
-      </div>
-      <div class="form-group">
-        <label for="message">Message</label>
-        <textarea
-          class="form-control"
-          id="message"
-          rows="3"
-          placeholder="Write your message here..."
-        />
-      </div>
-      <button type="submit" class="btn btn-primary">Send</button>
-    </form>
+    <div>
+      <form on:submit|preventDefault={() => console.log('submitted')} id="contactform">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" class="form-control" id="name" placeholder="Name" />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" id="email" placeholder="Email" />
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea
+            class="form-control"
+            id="message"
+            rows="3"
+            placeholder="Write your message here..."
+          />
+        </div>
+        <button type="submit" class="btn btn-primary">Send</button>
+      </form>
 
-    <p>Thank you for visiting my small town prairie portfolio!</p>
+      <p>Thank you for visiting my small town prairie portfolio!</p>
+    </div>
   </section>
 </main>
 <footer>
@@ -105,7 +94,7 @@
   <AuthorCard {author} />
 {/each} -->
 <style>
-  section#photo {
+  #photo {
     height: 100vh;
     background-image: url('/temp/lake.jpeg');
     background-size: cover;
@@ -119,7 +108,7 @@
     box-shadow: inset 0px -10rem 50px 0px rgba(0, 0, 0, 0.5);
   }
 
-  section#photo #controls {
+  #photo #controls {
     display: flex;
     align-items: center;
     gap: var(--space-2);
@@ -127,60 +116,44 @@
 
     color: var(--light);
   }
-  section#photo #controls button {
+  #photo #controls button {
     background: none;
     border: none;
     padding: 0;
     margin: 0;
   }
-  section#photo #controls a {
+  #photo #controls a {
     text-decoration: none;
   }
 
-  div#about {
-    position: relative;
-  }
-
-  div#about img {
-    width: 100px;
-    height: 100px;
-    aspect-ratio: 16/9;
-
-    float: inline-start;
-    clear: both;
-
-    shape-outside: ellipse();
-    margin: 0 var(--space-2) var(--space-2) 0;
-
-    border-radius: 10000px;
-    border: solid white 2px;
-    -webkit-appearance: none;
-    box-shadow: 0px 0px 4px var(--dark);
-    object-fit: cover;
-  }
-
-  section.bio {
-    padding: var(--space-2);
-  }
-  section.bio p {
-    font-size: var(--font-big);
-  }
-  section.bio.bio-dark {
-    background-color: var(--dark);
-    color: var(--light);
-  }
   section.bio.bio-light {
-    background-color: var(--white);
+    padding-top: var(--space-5);
+    background-color: var(--light);
     color: var(--dark);
   }
 
-  h2 {
-    font-size: var(--font-larger);
-    font-family: var(--font-accent);
-    text-align: center;
+  @media (min-width: 768px) {
+    section {
+      display: flex;
+      justify-content: center;
+    }
+    section > div {
+      max-width: var(--content-max-width);
+      margin: auto;
+    }
 
-    margin-top: var(--space-2);
-    margin-bottom: var(--space-2);
+    section:not(#contact) > div {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-5);
+      width: 100%;
+    }
+
+    section.bio.bio-light p {
+      text-justify: newspaper;
+      max-width: 25vw;
+    }
   }
 
   section#contact {
@@ -203,6 +176,11 @@
     align-items: center;
 
     gap: var(--space-1);
+  }
+  form .form-group,
+  form .form-group input,
+  form .form-group textarea {
+    width: 100%;
   }
   form .form-group label {
     display: none;

@@ -29,6 +29,8 @@
   --shadow-25: 0px 2px 4px var(--dark-25);
   --shadow-inset: inset 0px 0px 4px var(--dark);
   --shadow-inset-25: inset 0px 0px 4px var(--dark-25);
+
+  --content-max-width: 1000px;
 }
 
 body * {
