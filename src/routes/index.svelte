@@ -13,6 +13,10 @@
 </script>
 
 <script>
+  import Jumbotron from '../lib/Jumbotron.svelte'
+
+  import Contact from '../lib/Contact.svelte'
+
   import About from '../lib/About.svelte'
 
   // import AuthorCard from '$lib/AuthorCard.svelte'
@@ -30,48 +34,9 @@
 <Header />
 
 <main>
-  <div id="photo">
-    <div id="controls">
-      <button>&larr;</button>
-      <a href="/">View Album</a>
-      <button>&rarr;</button>
-    </div>
-  </div>
+  <Jumbotron />
   <About />
-  <section class="bio bio-light">
-    <div>
-      <p>
-        <strong> Check out my work</strong> and <strong>get in touch</strong> with <br /> me to schedule
-        your shoot today.
-      </p>
-    </div>
-  </section>
-  <section class="bio bio-light" id="contact">
-    <div>
-      <form on:submit|preventDefault={() => console.log('submitted')} id="contactform">
-        <div class="form-group">
-          <label for="name">Name</label>
-          <input type="text" class="form-control" id="name" placeholder="Name" />
-        </div>
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" class="form-control" id="email" placeholder="Email" />
-        </div>
-        <div class="form-group">
-          <label for="message">Message</label>
-          <textarea
-            class="form-control"
-            id="message"
-            rows="3"
-            placeholder="Write your message here..."
-          />
-        </div>
-        <button type="submit" class="btn btn-primary">Send</button>
-      </form>
-
-      <p>Thank you for visiting my small town prairie portfolio!</p>
-    </div>
-  </section>
+  <Contact />
 </main>
 <footer>
   <div id="copy">
@@ -171,23 +136,17 @@
 
   section#contact form {
     clear: both;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
+    display: grid;
     gap: var(--space-1);
+
+    padding-inline: var(--space-2);
   }
-  form .form-group,
-  form .form-group input,
-  form .form-group textarea {
-    width: 100%;
-  }
-  form .form-group label {
+  form label {
     display: none;
   }
 
-  form .form-group input,
-  form .form-group textarea {
+  form input,
+  form textarea {
     display: block;
     padding: 1rem;
     border-radius: var(--br);
