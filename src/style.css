@@ -1,11 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Josefin+Sans:ital,wght@0,100;0,400;0,700;1,100;1,400;1,700&display=swap');
 
 :root {
-  --light: #f5f5f5;
-
+  --light: rgba(245, 245, 245, 1);
+  --light-25: rgba(245, 245, 245, 0.25);
   --dark: rgba(54, 69, 79, 1);
   --dark-25: rgba(54, 69, 79, 0.25);
+  --dark-50: rgba(54, 69, 79, 0.5);
   --dark-hover: rgba(31, 39, 46, 1);
+  --dark-hover-25: rgba(31, 39, 46, 0.25);
   --dark-active: rgba(72, 90, 106, 1);
 
   --font-big: 1.25rem;
@@ -22,20 +24,32 @@
   --space-4: 3rem;
   --space-5: 4rem;
   --space-6: 5rem;
+  --space-7: 6rem;
+  --space-8: 7rem;
+  --space-9: 8rem;
+  --space-10: 9rem;
 
   --br: 2px;
 
-  --shadow: 0px 2px 4px var(--dark);
-  --shadow-25: 0px 2px 4px var(--dark-25);
-  --shadow-inset: inset 0px 0px 4px var(--dark);
-  --shadow-inset-25: inset 0px 0px 4px var(--dark-25);
+  --shadow: 0px 2px 4px var(--dark-hover);
+  --shadow-25: 0px 2px 4px var(--dark-hover-25);
+  --shadow-inset: inset 0px 0px 4px var(--dark-hover);
+  --shadow-inset-bottom: inset 0 -20px 20px -20px var(--dark-hover);
+  --shadow-inset-top: inset 0 20px 20px -20px var(--dark-hover);
+  --shadow-inset-25: inset 0px 0px 4px var(--dark-hover-25);
 
   --content-max-width: 1000px;
 }
 
-body * {
+body {
+  background: var(--light);
   font-size: 16px;
   font-family: var(--font);
+}
+
+body * {
+  font-family: inherit;
+  font-size: inherit;
   color: inherit;
 }
 

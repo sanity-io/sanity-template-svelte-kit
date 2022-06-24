@@ -13,8 +13,6 @@
 </script>
 
 <script>
-  import Footer from '../lib/Footer.svelte'
-
   import Jumbotron from '../lib/Jumbotron.svelte'
 
   import Contact from '../lib/Contact.svelte'

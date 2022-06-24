@@ -9,9 +9,9 @@
   <ul>
     <li><a href="/">Home</a></li>
     <li>&bull;</li>
-    <li><a href="/about">Gallery</a></li>
+    <li><a href="/gallery">Gallery</a></li>
     <li>&bull;</li>
-    <li><a href="/contact">Pricing</a></li>
+    <li><a href="/pricing">Pricing</a></li>
 
     <li id="mobile-trigger">
       <button on:click={() => (menuOpen = !menuOpen)}> Menu </button>
@@ -23,8 +23,8 @@
       <img src="header-logo.png" alt="Kelsey Lea Photography" />
     </a>
     <a href="/">Home</a>
-    <a href="/about">Gallery</a>
-    <a href="/contact">Pricing</a>
+    <a href="/gallery">Gallery</a>
+    <a href="/pricing">Pricing</a>
 
     <button on:click={() => (menuOpen = !menuOpen)}> Close </button>
   </div>
