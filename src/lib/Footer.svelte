@@ -1,20 +1,27 @@
 <footer>
-  <div id="copy">
-    <p>&copy; Images by</p>
-    <img src="/footer-logo.png" alt="logo" />
+  <div>
+    <div id="copy">
+      <p>&copy; Images by</p>
+      <img src="/footer-logo.png" alt="logo" />
+    </div>
+    <div id="nav">
+      <p>Home &bull; Pricing &bull; Gallery</p>
+    </div>
+    <p id="credit">
+      Site by <a href="https://ca.linkedin.com/in/austin-mcphail">McPhail.dev</a>
+    </p>
   </div>
-  <div id="nav">
-    <p>Home &bull; Pricing &bull; Gallery</p>
-  </div>
-  <p id="credit">
-    Site by <a href="https://ca.linkedin.com/in/austin-mcphail">McPhail.dev</a>
-  </p>
 </footer>
 
 <style>
   footer {
     background: var(--dark);
     color: var(--light);
+    display: grid;
+    place-items: center;
+  }
+
+  footer > div {
     display: grid;
     grid-template-areas:
       'nav'
@@ -24,6 +31,7 @@
     justify-items: center;
     gap: var(--space-2);
     padding: var(--space-2);
+    max-width: var(--content-max-width);
   }
 
   div#nav {
@@ -54,8 +62,10 @@
   }
 
   @media (min-width: 768px) {
-    footer {
-      grid-template-areas: 'copy nav credit';
+    footer > div {
+      grid-template-areas: unset;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 1fr;
       align-content: center;
       align-items: center;
       justify-content: center;
@@ -69,6 +79,18 @@
       align-items: center;
       margin-top: unset;
       gap: var(--space-1);
+    }
+
+    div#nav {
+      grid-area: unset;
+    }
+
+    p#credit {
+      grid-area: unset;
+    }
+
+    div#copy {
+      grid-area: unset;
     }
   }
 </style>
