@@ -9,16 +9,10 @@
 <a class={style} style={`--previewImage: url("${previewImageOne}");`} href={linkToAlbum}>
   <div>
     <div>
-      <!-- <img src={previewImageOne} alt={`${title} preview 1`} /> -->
-    </div>
-    <div>
       <h2>{title}</h2>
       {#if quote}
         <p>{quote}</p>
       {/if}
-    </div>
-    <div>
-      <!-- <img src={previewImageTwo} alt={`${title} preview 2`} /> -->
     </div>
   </div>
   <div class="img" />
@@ -85,7 +79,7 @@
   @media (min-width: 768px) {
     a:focus,
     a:hover {
-      padding-block: var(--space-10);
+      padding-block: var(--space-8);
     }
   }
 
@@ -96,7 +90,6 @@
 
   a > div:not(.img) {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
     justify-items: center;
     align-items: center;
     gap: var(--space-2);
@@ -110,13 +103,15 @@
     font-weight: bold;
     margin-block: var(--space-2);
     text-align: center;
-    z-index: 1;
+    z-index: 0;
+    text-shadow: 0 0 6px var(--dark-hover), 0 0 10px var(--dark-hover);
   }
 
   p {
     position: relative;
     font-size: var(--font-large);
     text-align: center;
-    z-index: 1;
+    z-index: 0;
+    text-shadow: 0 0 6px var(--dark-hover), 0 0 10px var(--dark-hover);
   }
 </style>
