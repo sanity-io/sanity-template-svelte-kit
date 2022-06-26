@@ -2,11 +2,15 @@
   <div>
     <div id="copy">
       <p>&copy; Images by</p>
-      <img src="/footer-logo.png" alt="logo" />
+      <a href="/"><img src="/footer-logo.png" alt="logo" /></a>
     </div>
-    <div id="nav">
-      <p>Home &bull; Pricing &bull; Gallery</p>
-    </div>
+    <ul id="nav">
+      <li><a href="/">Home</a></li>
+      <li>&bull;</li>
+      <li><a href="/gallery">Gallery</a></li>
+      <li>&bull;</li>
+      <li><a href="/pricing">Pricing</a></li>
+    </ul>
     <p id="credit">
       Site by <a href="https://ca.linkedin.com/in/austin-mcphail">McPhail.dev</a>
     </p>
@@ -34,9 +38,20 @@
     max-width: var(--content-max-width);
   }
 
-  div#nav {
+  #nav {
     grid-area: nav;
     color: inherit;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  #nav a {
+    text-decoration: none;
+  }
+  #nav a:hover,
+  #nav a:focus {
+    text-decoration: underline;
   }
 
   p#credit {
@@ -81,7 +96,7 @@
       gap: var(--space-1);
     }
 
-    div#nav {
+    #nav {
       grid-area: unset;
     }
 
