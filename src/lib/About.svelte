@@ -72,6 +72,14 @@
     color: var(--dark);
   }
 
+  #bio {
+    box-shadow: var(--shadow-inset-top);
+  }
+
+  #bio-travel {
+    box-shadow: var(--shadow);
+  }
+
   h2 {
     font-size: var(--font-larger);
     font-family: var(--font-accent);

@@ -1,81 +1,79 @@
-<script>
-  import PageTitle from '../../../lib/PageTitle.svelte'
-  export let photos = [
-    {slug: {current: 'family'}, title: 'Family', image: '/temp/family.jpeg', class: ''},
-    {slug: {current: 'pets'}, title: 'Pets', image: '/temp/family-dog.jpeg', class: ''},
-    {slug: {current: 'couples'}, title: 'Couples', image: '/temp/lake.jpeg', class: 'landscape'},
-    {slug: {current: 'artistic'}, title: 'Artistic', image: '/temp/wine.jpeg', class: 'landscape'}
-  ]
+<script context="module">
+  export async function load({params, fetch}) {
+    try {
+      const url = `/gallery/${params.album}/${params.album}.json`
+      const res = await fetch(url)
+      const data = await res.json()
+
+      if (data?.album) {
+        return {
+          props: data.album
+        }
+      }
+    } catch (err) {
+      return {
+        status: 500,
+        error: new Error(`Could not load url`)
+      }
+    }
+    return {props: {name, quote, photos}}
+  }
 </script>
 
-<PageTitle title="Album Name" subtitle="Gallery" quote="Album Quote" />
+<script>
+  // import PortableText from '@portabletext/svelte'
+  // import Code from '$lib/Code.svelte'
+  // import Link from '$lib/Link.svelte'
+  // import ImageBlock from '$lib/ImageBlock.svelte'
+  // import AuthorBlock from '$lib/AuthorBlock.svelte'
+  // import AuthorCard from '$lib/AuthorCard.svelte'
+  // import SanityImage from '$lib/SanityImage.svelte'
 
-<section>
-  <div>
-    {#each photos as p}
-      <figure class={p.class} key={p.slug.current}>
-        <a href="/gallery">
-          <img style="max-height: 75vh; objectFit: contain;" src={p.image} alt={p.title} />
-        </a>
-      </figure>
-    {/each}
-  </div>
-</section>
+  // export let post
+  import Album from '../../../lib/Album.svelte'
+  import PageTitle from '../../../lib/PageTitle.svelte'
 
-<style>
-  section {
-    margin-top: var(--space-2);
-    display: grid;
-    place-content: center;
-    padding-bottom: var(--space-5);
-    padding-inline: var(--space-2);
-  }
+  export let name
+  export let photos
+  export let quote
+</script>
 
-  img {
-    min-width: 100%;
-    max-width: 100%;
-    display: block;
-  }
+<svelte:head>
+  <!-- <title>{post.title}</title> -->
+</svelte:head>
 
-  figure {
-    margin: 0;
-    display: grid;
-    grid-template-rows: 1fr auto;
-  }
+<PageTitle title={name} subtitle="Gallery" {quote} />
+<Album {photos} />
 
-  figure img {
-    grid-row: 1 / -1;
-    grid-column: 1;
-  }
+<!-- <h1>{post.title}</h1>
+<p>
+  Published {new Date(post.publishedAt).toLocaleDateString('en', {
+    month: 'long',
+    day: '2-digit',
+    year: 'numeric'
+  })}
+</p>
 
-  figure a {
-    text-decoration: none;
-  }
+{#each post.authors || [] as author}
+  <AuthorCard {author} />
+{/each}
 
-  figcaption {
-    grid-row: 2;
-    grid-column: 1;
-    background-color: rgba(255, 255, 255, 0.5);
-    padding: 0.2em 0.5em;
-    justify-self: start;
-  }
+<hr />
 
-  section > div {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: masonry;
-    gap: var(--space-2);
-    max-width: var(--content-max-width);
-  }
-  .landscape {
-    grid-column-end: span 2;
-  }
-  @media (min-width: 768px) {
-    section > div {
-      grid-template-columns: repeat(3, 1fr);
+{#if post.image}
+  <SanityImage image={post.image} />
+{/if}
+
+<PortableText
+  blocks={post.body}
+  serializers={{
+    types: {
+      code: Code,
+      image: ImageBlock,
+      authorReference: AuthorBlock
+    },
+    marks: {
+      link: Link
     }
-    .landscape {
-      grid-column-end: unset;
-    }
-  }
-</style>
+  }}
+/> -->

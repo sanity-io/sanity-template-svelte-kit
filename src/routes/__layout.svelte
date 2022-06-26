@@ -17,11 +17,23 @@
 </svelte:head>
 <Header />
 
-<Transition {url}>
-  <slot />
-</Transition>
+<div>
+  <main>
+    <Transition {url}>
+      <slot />
+    </Transition>
+  </main>
 
-<Footer />
+  <Footer />
+</div>
 
 <style>
+  div {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  main {
+    flex: 1;
+  }
 </style>

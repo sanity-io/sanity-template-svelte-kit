@@ -20,7 +20,7 @@
 
   <div id="mobile-menu" class:open={menuOpen}>
     <a href="/">
-      <img src="header-logo.png" alt="Kelsey Lea Photography" />
+      <img src="/header-logo.png" alt="Kelsey Lea Photography" />
     </a>
     <a href="/">Home</a>
     <a href="/gallery">Gallery</a>
