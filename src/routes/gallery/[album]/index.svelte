@@ -8,7 +8,7 @@
   ]
 </script>
 
-<PageTitle title="Album Name" quote="Album Quote" />
+<PageTitle title="Album Name" subtitle="Gallery" quote="Album Quote" />
 
 <section>
   <div>

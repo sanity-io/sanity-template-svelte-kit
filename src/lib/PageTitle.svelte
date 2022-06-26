@@ -9,7 +9,9 @@
   {#if subtitle}
     <p class="subtitle">{subtitle}</p>
   {/if}
-  <p>{quote}</p>
+  {#if quote}
+    <p>{quote}</p>
+  {/if}
 </section>
 
 <style>
