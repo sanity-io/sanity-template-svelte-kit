@@ -1,4 +1,6 @@
 <script>
+  import FAQ from './FAQ.svelte'
+
   import PackageAddons from './PackageAddons.svelte'
 
   import PackageFeatures from './PackageFeatures.svelte'
@@ -18,4 +20,5 @@
 
 <PackageFeatures {previewImageOne} {previewImageTwo} {cost} {features} />
 <PackageAddons {addons} {blurb} />
+<FAQ />
 <Contact />

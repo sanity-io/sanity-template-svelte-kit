@@ -43,7 +43,6 @@
     background: var(--light);
     box-shadow: var(--shadow-inset-top), var(--shadow-25);
     color: var(--dark);
-    margin-bottom: var(--space-2);
   }
 
   section > div {
