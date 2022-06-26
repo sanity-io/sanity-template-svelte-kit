@@ -10,6 +10,7 @@
   --dark-hover-25: rgba(31, 39, 46, 0.25);
   --dark-active: rgba(72, 90, 106, 1);
 
+  --font-normal: 16px;
   --font-big: 1.25rem;
   --font-large: 1.5rem;
   --font-larger: 2rem;
@@ -28,6 +29,7 @@
   --space-8: 7rem;
   --space-9: 8rem;
   --space-10: 9rem;
+  --space-20: 20rem;
 
   --br: 2px;
 
@@ -43,7 +45,7 @@
 
 body {
   background: var(--light);
-  font-size: 16px;
+  font-size: var(--font-normal);
   font-family: var(--font);
   position: relative;
 }

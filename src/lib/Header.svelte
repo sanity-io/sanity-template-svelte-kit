@@ -4,7 +4,7 @@
 
 <header>
   <a href="/" id="logo">
-    <img src="header-logo.png" alt="Kelsey Lea Photography" />
+    <img src="/header-logo.png" alt="Kelsey Lea Photography" />
   </a>
   <ul>
     <li><a href="/">Home</a></li>

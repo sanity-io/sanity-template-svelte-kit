@@ -1,10 +1,14 @@
 <script>
   export let title
   export let quote
+  export let subtitle
 </script>
 
 <section>
   <h2>{title}</h2>
+  {#if subtitle}
+    <p class="subtitle">{subtitle}</p>
+  {/if}
   <p>{quote}</p>
 </section>
 
@@ -29,5 +33,13 @@
     font-family: var(--font-accent);
     font-size: var(--font-large);
     text-align: center;
+  }
+
+  p.subtitle {
+    font-family: var(--font);
+    font-size: var(--font-large);
+    color: var(--dark-50);
+    text-align: center;
+    margin-bottom: var(--space-2);
   }
 </style>

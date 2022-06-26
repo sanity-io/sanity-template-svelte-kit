@@ -10,7 +10,7 @@
   title="Family"
   previewImageOne="/temp/family.jpeg"
   cost="$250"
-  linkToPackage="/gallery/family"
+  linkToPackage="/pricing/family"
   style="dark"
   features={[
     '1 hour session in a local area.',
@@ -22,7 +22,7 @@
   title="Pets"
   previewImageOne="/temp/family-dog.jpeg"
   cost="$200"
-  linkToPackage="/gallery/pets"
+  linkToPackage="/pricing/pets"
   style="light"
   features={[
     '1 hour session in a local area. 1 hour session in a local area.',
@@ -34,7 +34,7 @@
   title="Couples"
   previewImageOne="/temp/lake.jpeg"
   cost="$200"
-  linkToPackage="/gallery/couples"
+  linkToPackage="/pricing/couples"
   style="dark"
   features={[
     '1 hour session in a local area.',
@@ -46,7 +46,7 @@
   title="Artistic"
   previewImageOne="/temp/wine.jpeg"
   cost="$150"
-  linkToPackage="/gallery/artistic"
+  linkToPackage="/pricing/artistic"
   style="light"
   features={[
     '1 hour session in a local area.',
