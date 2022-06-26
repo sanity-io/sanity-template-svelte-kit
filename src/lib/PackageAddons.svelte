@@ -8,26 +8,28 @@
 <section>
   <div>
     <h3>Addons & Extras</h3>
-    <div class="addons">
-      <ul>
-        {#each firstHalfOfAddons as addon}
-          <li>
-            <span>
-              {addon}
-            </span>
-          </li>
-        {/each}
-      </ul>
-      <ul>
-        {#each secondHalfOfAddons as addon}
-          <li>
-            <span>
-              {addon}
-            </span>
-          </li>
-        {/each}
-      </ul>
-    </div>
+    {#if addons?.length}
+      <div class="addons">
+        <ul>
+          {#each firstHalfOfAddons as addon}
+            <li>
+              <span>
+                {addon}
+              </span>
+            </li>
+          {/each}
+        </ul>
+        <ul>
+          {#each secondHalfOfAddons as addon}
+            <li>
+              <span>
+                {addon}
+              </span>
+            </li>
+          {/each}
+        </ul>
+      </div>
+    {/if}
     {#if blurb}
       <p class="blurb">
         {blurb}

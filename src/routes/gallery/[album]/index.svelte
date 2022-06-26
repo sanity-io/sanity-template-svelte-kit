@@ -16,7 +16,6 @@
         error: new Error(`Could not load url`)
       }
     }
-    return {props: {name, quote, photos}}
   }
 </script>
 

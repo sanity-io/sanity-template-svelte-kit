@@ -11,14 +11,14 @@
   export let cost
   export let features = []
   export let addons = []
-  export let blurb = `All sessions are customizable to fit your unique requirements! Lorem ipsum dolor sit amet,
-        consectetur adipiscing elit. Maecenas semper neque a odio consequat pharetra. Feel free to
-        ask any questions you may have.`
+  export let blurb = ''
 
   export let title
 </script>
 
 <PackageFeatures {previewImageOne} {previewImageTwo} {cost} {features} />
-<PackageAddons {addons} {blurb} />
+{#if addons?.length || blurb}
+  <PackageAddons {addons} {blurb} />
+{/if}
 <FAQ />
 <Contact />
