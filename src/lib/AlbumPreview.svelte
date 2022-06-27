@@ -1,9 +1,12 @@
 <script>
-  export let previewImageOne
+  import {urlFor} from './sanityClient'
+  export let cover
   export let title
   export let quote
   export let style
   export let linkToAlbum
+
+  const previewImageOne = urlFor(cover).url()
 </script>
 
 <a class={style} style={`--previewImage: url("${previewImageOne}");`} href={linkToAlbum}>

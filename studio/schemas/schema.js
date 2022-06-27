@@ -5,14 +5,13 @@ import createSchema from 'part:@sanity/base/schema-creator'
 import schemaTypes from 'all:part:@sanity/base/schema-type'
 
 // document schemas
-import photographer from './documents/photographer'
 import album from './documents/album'
 import photo from './documents/photo'
-import content from './documents/content'
+import siteSettings from './documents/website'
 
 // Object types
-import photographerReference from './objects/photographerReference'
 import albumReference from './objects/albumReference'
+import siteImage from './objects/siteImage'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -25,12 +24,11 @@ export default createSchema({
     // in the studio.
     photo,
     album,
-    photographer,
-    content,
+    siteSettings,
 
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
-    photographerReference,
-    albumReference
+    albumReference,
+    siteImage
   ])
 })

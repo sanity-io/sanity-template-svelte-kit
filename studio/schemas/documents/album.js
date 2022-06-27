@@ -22,6 +22,21 @@ export default {
         maxLength: 96
       },
       validation: (Rule) => Rule.required()
+    },
+    {
+      name: 'cover',
+      type: 'siteImage',
+      title: 'Cover Image',
+      description: 'Image that appears within the link to the album in the Gallery.'
+    },
+    {
+      name: 'showOnHome',
+      type: 'boolean',
+      title: 'Display on Home Page',
+      description: 'Photos from this album will be shown on the Homepage.'
     }
-  ]
+  ],
+  initialValue: {
+    showOnHome: true
+  }
 }

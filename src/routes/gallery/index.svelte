@@ -1,35 +1,37 @@
+<script context="module">
+  export async function load({fetch}) {
+    try {
+      const url = `/gallery/gallery.json`
+      const res = await fetch(url)
+      const data = await res.json()
+
+      if (data) {
+        return {
+          props: data
+        }
+      }
+    } catch (err) {
+      return {
+        status: 500,
+        error: new Error(`Could not load gallery`)
+      }
+    }
+  }
+</script>
+
 <script>
   import AlbumPreview from '../../lib/AlbumPreview.svelte'
-
   import PageTitle from '../../lib/PageTitle.svelte'
+  export let albums = []
 </script>
 
 <PageTitle title="Gallery" quote="Beauty can be found in all things." />
 
-<AlbumPreview
-  title="Family"
-  previewImageOne="/temp/family.jpeg"
-  linkToAlbum="/gallery/family"
-  style="dark"
-/>
-<AlbumPreview
-  title="Pets"
-  previewImageOne="/temp/family-dog.jpeg"
-  linkToAlbum="/gallery/pets"
-  style="light"
-/>
-<AlbumPreview
-  title="Couples"
-  previewImageOne="/temp/lake.jpeg"
-  linkToAlbum="/gallery/couples"
-  style="dark"
-/>
-<AlbumPreview
-  title="Artistic"
-  previewImageOne="/temp/wine.jpeg"
-  linkToAlbum="/gallery/artistic"
-  style="light"
-/>
-
-<style>
-</style>
+{#each albums as album, i}
+  <AlbumPreview
+    title={album.title}
+    cover={album.cover}
+    linkToAlbum={album.url}
+    style={i % 2 === 0 ? 'dark' : 'light'}
+  />
+{/each}

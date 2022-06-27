@@ -15,8 +15,8 @@ export default {
   ],
   preview: {
     select: {
-      title: 'album.name'
-      // media: 'album.image.asset'
+      title: 'album.name',
+      cover: 'album.cover.asset'
     }
   }
 }
