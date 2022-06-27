@@ -24,6 +24,12 @@ export default {
       validation: (Rule) => Rule.required()
     },
     {
+      name: 'quote',
+      type: 'string',
+      title: 'Quote',
+      description: "The quote that appears on the Album's Gallery page."
+    },
+    {
       name: 'cover',
       type: 'siteImage',
       title: 'Cover Image',

@@ -4,6 +4,7 @@
   export let image
   export let maxWidth = 1200
   export let alt = undefined
+  export let styles = ''
 
   // Example image document ID: image-cc93b69600f5cd1abce97fd0d4aa71793dbbba76-1350x900-png
   // Structure: image-${storedImgId}-${dimensions}-${format}
@@ -24,7 +25,7 @@
     loading="lazy"
     src={urlFor(image).width(maxWidth).fit('fillmax')}
     alt={alt || image.alt || ''}
-    style="aspect-ratio: {aspectRatio}; opacity: {loaded ? 1 : 0}; transition: .2s opacity;"
+    style="aspect-ratio: {aspectRatio}; opacity: {loaded ? 1 : 0}; transition: .2s opacity;{styles}"
     on:load={() => (loaded = true)}
   />
 {/if}

@@ -29,7 +29,8 @@ export default {
     {
       name: 'album',
       title: 'album',
-      type: 'albumReference'
+      type: 'albumReference',
+      validation: (Rule) => Rule.error('You have to select an Album.').required()
     },
     {
       name: 'publishedAt',
