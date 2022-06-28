@@ -82,41 +82,51 @@
 
   .grid-wrapper {
     display: grid;
-    grid-gap: 10px;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: var(--space-1);
+    grid-template-columns: repeat(2, 1fr);
     grid-auto-rows: 200px;
     grid-auto-flow: dense;
   }
 
   .grid-wrapper .landscape {
+    grid-row: span 2;
     grid-column: span 2;
   }
-  .grid-wrapper .portrait {
+  .grid-wrapper .wide {
     grid-row: span 2;
+    grid-column: span 2;
   }
 
-  .grid-wrapper .wide {
-    grid-column: span 2;
+  .grid-wrapper .portrait {
+    grid-row: span 2;
+    grid-column: span 1;
   }
   .grid-wrapper .tall {
     grid-row: span 2;
+    grid-column: span 1;
   }
 
   @media (min-width: 768px) {
-    .grid-wrapper .landscape {
-      grid-column: span 2;
-    }
-    .grid-wrapper .portrait {
-      grid-row: span 2;
+    .grid-wrapper {
+      grid-template-columns: repeat(9, 1fr);
     }
 
-    .grid-wrapper .wide {
-      grid-column: span 3;
+    .grid-wrapper .landscape {
       grid-row: span 2;
+      grid-column: span 3;
+    }
+    .grid-wrapper .wide {
+      grid-row: span 3;
+      grid-column: span 4;
+    }
+
+    .grid-wrapper .portrait {
+      grid-row: span 3;
+      grid-column: span 2;
     }
     .grid-wrapper .tall {
-      grid-column: span 2;
-      grid-row: span 3;
+      grid-row: span 4;
+      grid-column: span 3;
     }
   }
 </style>
