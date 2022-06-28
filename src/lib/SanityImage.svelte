@@ -26,6 +26,7 @@
     src={urlFor(image).width(maxWidth).fit('fillmax')}
     alt={alt || image.alt || ''}
     style="aspect-ratio: {aspectRatio}; opacity: {loaded ? 1 : 0}; transition: .2s opacity;{styles}"
+    class="sanity-img"
     on:load={() => (loaded = true)}
   />
 {/if}
