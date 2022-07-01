@@ -37,10 +37,17 @@ export default {
       type: 'datetime',
       title: 'Published at',
       description: 'This can be used to schedule post for publishing.'
+    },
+    {
+      name: 'showOnHome',
+      type: 'boolean',
+      title: 'Display on Home Page',
+      description: 'Photos from this album will be shown on the Homepage.'
     }
   ],
   initialValue: {
-    publishedAt: new Date().toISOString()
+    publishedAt: new Date().toDateString(),
+    showOnHome: true
   },
   preview: {
     select: {

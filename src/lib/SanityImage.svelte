@@ -3,8 +3,10 @@
 
   export let image
   export let maxWidth = 1200
+  export let maxHeight = 1200
   export let alt = undefined
   export let styles = ''
+  export let classes = ''
 
   // Example image document ID: image-cc93b69600f5cd1abce97fd0d4aa71793dbbba76-1350x900-png
   // Structure: image-${storedImgId}-${dimensions}-${format}
@@ -23,10 +25,15 @@
 {#if image}
   <img
     loading="lazy"
-    src={urlFor(image).width(maxWidth).fit('fillmax')}
+    src={urlFor(image).width(maxWidth).height(maxHeight).fit('fillmax')}
     alt={alt || image.alt || ''}
-    style="aspect-ratio: {aspectRatio}; opacity: {loaded ? 1 : 0}; transition: .2s opacity;{styles}"
-    class="sanity-img"
+    style="aspect-ratio: {aspectRatio}; opacity: {loaded
+      ? 1
+      : 0}; transition: .2s opacity;{styles}; --image-url: url('${urlFor(image)
+      .width(maxWidth)
+      .height(maxHeight)
+      .fit('fillmax')}')"
+    class={`sanity-img ${classes}`}
     on:load={() => (loaded = true)}
   />
 {/if}

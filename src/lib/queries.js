@@ -13,6 +13,21 @@ export function getPhotosQuery(extraFilter) {
   }`
 }
 
+export function getJumbotronPhotosQuery() {
+  return /* groq */ `*[
+    _type == "photo" &&
+    publishedAt < now() &&
+    showOnHome == true && 
+    album.album->showOnHome == true
+  ] | order(publishedAt desc) {
+    image,
+    publishedAt,
+    album {
+      album->{title, slug}
+    }
+  }`
+}
+
 export function getAlbumsQuery(extraFilter) {
   return /* groq */ `*[
     _type == "album" &&

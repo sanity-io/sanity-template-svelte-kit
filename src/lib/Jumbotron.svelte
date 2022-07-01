@@ -1,45 +1,63 @@
 <script>
-  let images = ['/temp/lake.jpeg', '/temp/cows.jpeg', '/temp/wine.jpeg']
+  import {fade} from 'svelte/transition'
+  import SanityImage from './SanityImage.svelte'
+
+  export let photos = []
+
   let index = 0
-  $: image = images[index]
+  $: image = photos[index]
   function next() {
-    if (index === images.length - 1) {
+    if (index === photos.length - 1) {
       index = 0
     } else {
-      index += 1
+      index = index + 1
     }
   }
   function prev() {
     if (index === 0) {
-      index = images.length - 1
+      index = photos.length - 1
     } else {
-      index -= 1
+      index = index - 1
     }
   }
 </script>
 
-<div id="photo" style:background-image={`url('${image}')`}>
-  <div id="controls">
-    <button on:click={prev}>&larr;</button>
-    <a href="/">View Album</a>
-    <button on:click={next}>&rarr;</button>
+{#key index}
+  <div id="photo" transition:fade={{duration: 200}}>
+    <SanityImage image={image.image} />
+
+    <div id="controls">
+      <button on:click={prev}>&larr;</button>
+      <a href="/gallery/{image.album?.album?.slug?.current}">View Album</a>
+      <button on:click={next}>&rarr;</button>
+    </div>
   </div>
-</div>
+{/key}
 
 <style>
   #photo {
+    position: relative;
     height: 100vh;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-
-    transition: background-image 250ms;
-
     display: flex;
     justify-content: center;
     align-items: flex-end;
-
     box-shadow: inset 0px -10rem 50px 0px rgba(0, 0, 0, 0.5);
+  }
+
+  :global(#photo .sanity-img) {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+
+    object-fit: cover;
+    /* transitions */
+    -webkit-transition: all 0.4s ease;
+    -moz-transition: all 0.4s ease;
+    -ms-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+
+    z-index: -1;
   }
 
   #photo #controls {

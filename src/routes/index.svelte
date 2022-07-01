@@ -1,15 +1,21 @@
 <script context="module">
-  // export async function load({fetch}) {
-  //   try {
-  //     const res = await fetch('/blog/all.json')
-  //     const data = await res.json()
-  //     return {
-  //       props: data
-  //     }
-  //   } catch (err) {
-  //     console.log('500:', err)
-  //   }
-  // }
+  export async function load({params, fetch}) {
+    try {
+      const url = `/jumbotron.json`
+      const res = await fetch(url)
+      const data = await res.json()
+      if (data?.photos) {
+        return {
+          props: data
+        }
+      }
+    } catch (err) {
+      return {
+        status: 500,
+        error: new Error(`Could not load url`)
+      }
+    }
+  }
 </script>
 
 <script>
@@ -24,10 +30,11 @@
 
   // export let posts
   // export let authors
+  export let photos
 </script>
 
 <main>
-  <Jumbotron />
+  <Jumbotron {photos} />
   <About />
   <Contact />
 </main>

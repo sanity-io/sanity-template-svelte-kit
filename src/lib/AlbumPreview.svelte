@@ -35,12 +35,17 @@
     background-image: var(--previewImage);
 
     /* Create the parallax scrolling effect */
-    background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 
     transition: all 200ms;
+  }
+
+  @media (min-width: 768px) {
+    div.img {
+      background-attachment: fixed;
+    }
   }
 
   div.img::after {
