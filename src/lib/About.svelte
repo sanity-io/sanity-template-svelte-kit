@@ -62,10 +62,23 @@
     font-size: var(--font-big);
   }
   section.bio.bio-dark {
-    padding-bottom: var(--space-5);
+    padding-bottom: var(--space-2);
     background-color: var(--dark);
     color: var(--light);
   }
+
+  @media (max-width: 766px) {
+    section.bio.bio-dark h2 {
+      margin-bottom: 0;
+    }
+  }
+
+  @media (min-width: 768px) {
+    section.bio.bio-dark {
+      padding-bottom: var(--space-5);
+    }
+  }
+
   section.bio.bio-light {
     padding-top: var(--space-5);
     background-color: var(--light);
