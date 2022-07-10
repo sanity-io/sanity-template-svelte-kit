@@ -73,7 +73,7 @@ export default {
       name: 'img2',
       type: 'siteImage',
       title: 'Preview Image 2',
-      description: 'Image that appears first on the Package page.'
+      description: 'Image that appears second on the Package page.'
     },
     {
       title: 'FAQ',
