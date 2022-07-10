@@ -12,6 +12,7 @@
   export let features = []
   export let addons = []
   export let blurb = ''
+  export let faq = []
 
   export let title
 </script>
@@ -20,5 +21,5 @@
 {#if addons?.length || blurb}
   <PackageAddons {addons} {blurb} />
 {/if}
-<FAQ />
+<FAQ qas={faq} />
 <Contact />

@@ -1,4 +1,6 @@
 <script>
+  import SanityImage from './SanityImage.svelte'
+
   export let previewImageOne
   export let title
   export let cost
@@ -17,11 +19,12 @@
       {/each}
     </ul>
   </div>
-  <img src={previewImageOne} alt={`${title} preview image`} />
+
+  <SanityImage image={previewImageOne} />
 </a>
 
 <style>
-  img {
+  :global(.sanity-img) {
     width: 200px;
     height: 200px;
     object-fit: cover;
@@ -32,20 +35,20 @@
     grid-area: img;
   }
 
-  .light img {
+  .light :global(.sanity-img) {
     border: solid var(--dark) 2px;
     box-shadow: var(--shadow-25);
     justify-self: center;
   }
 
-  .dark img {
+  .dark :global(.sanity-img) {
     border: solid var(--light) 2px;
     box-shadow: var(--shadow);
     justify-self: center;
   }
 
   @media (min-width: 768px) {
-    img {
+    :global(.sanity-img) {
       height: 250px;
       width: 250px;
     }
@@ -56,12 +59,6 @@
     box-shadow: var(--shadow-inset-top);
 
     overflow: hidden;
-
-    /* display: flex;
-    flex-direction: column-reverse;
-    justify-content: center;
-    align-items: center;
-    gap: var(--space-2); */
 
     display: grid;
     grid-template-areas:

@@ -1,12 +1,17 @@
 <script>
+  import {urlFor} from './sanityClient'
+
   export let previewImageOne
   export let previewImageTwo
   export let cost
   export let features = []
+
+  const previewImageOneUrl = urlFor(previewImageOne).url()
+  const previewImageTwoUrl = urlFor(previewImageTwo).url()
 </script>
 
 <section class="features">
-  <div class="img" style={`--previewImage: url("${previewImageOne}");`} />
+  <div class="img" style={`--previewImage: url("${previewImageOneUrl}");`} />
   <div class="content">
     <p>Starting at</p>
     <h3>{cost}</h3>
@@ -16,7 +21,7 @@
       {/each}
     </ul>
   </div>
-  <div class="img" style={`--previewImage: url("${previewImageTwo}");`} />
+  <div class="img" style={`--previewImage: url("${previewImageTwoUrl}");`} />
 </section>
 
 <style>

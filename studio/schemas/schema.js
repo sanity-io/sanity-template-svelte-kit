@@ -8,6 +8,8 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 import album from './documents/album'
 import photo from './documents/photo'
 import siteSettings from './documents/website'
+import pckg from './documents/package'
+import questionAnswer from './objects/questionAnswer'
 
 // Object types
 import albumReference from './objects/albumReference'
@@ -25,10 +27,12 @@ export default createSchema({
     photo,
     album,
     siteSettings,
+    pckg,
 
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
     albumReference,
-    siteImage
+    siteImage,
+    questionAnswer
   ])
 })

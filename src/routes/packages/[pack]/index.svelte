@@ -1,7 +1,7 @@
 <script context="module">
   export async function load({params, fetch}) {
     try {
-      const url = `/pricing/${params.pack}/${params.pack}.json`
+      const url = `/packages/${params.pack}/${params.pack}.json`
       const res = await fetch(url)
       const data = await res.json()
       if (data?.pack) {
@@ -21,7 +21,7 @@
 <script>
   import Package from '../../../lib/Package.svelte'
   import PageTitle from '../../../lib/PageTitle.svelte'
-  export let name
+  export let title
   export let quote
   export let cost
   export let blurb
@@ -29,12 +29,13 @@
   export let previewImageTwo
   export let features = []
   export let addons = []
+  export let faq
 </script>
 
-<PageTitle title={name} subtitle="Packages & Pricing" {quote} />
+<PageTitle {title} subtitle="Packages & Pricing" {quote} />
 
 <Package
-  title={name}
+  {title}
   {blurb}
   {previewImageOne}
   {previewImageTwo}
@@ -42,4 +43,5 @@
   style="dark"
   {features}
   {addons}
+  {faq}
 />
