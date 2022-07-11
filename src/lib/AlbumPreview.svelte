@@ -9,7 +9,12 @@
   const previewImageOne = urlFor(cover).url()
 </script>
 
-<a class={style} style={`--previewImage: url("${previewImageOne}");`} href={linkToAlbum}>
+<a
+  rel="prefetch"
+  class={style}
+  style={`--previewImage: url("${previewImageOne}");`}
+  href={linkToAlbum}
+>
   <div>
     <div>
       <h2>{title}</h2>

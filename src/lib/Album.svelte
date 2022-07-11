@@ -60,7 +60,7 @@
     padding-inline: var(--space-2);
   }
 
-  :global(img.sanity-img) {
+  .grid-wrapper :global(.sanity-img) {
     max-width: 100%;
     height: auto;
     vertical-align: middle;
@@ -73,7 +73,7 @@
     justify-content: center;
     align-items: center;
   }
-  :global(.grid-wrapper > div > img.sanity-img) {
+  .grid-wrapper :global(.sanity-img) {
     width: 100%;
     height: 100%;
     object-fit: cover;

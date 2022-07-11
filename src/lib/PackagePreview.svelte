@@ -9,7 +9,12 @@
   export let features = []
 </script>
 
-<a class={style} style={`--previewImage: url("${previewImageOne}");`} href={linkToPackage}>
+<a
+  rel="prefetch"
+  class={'pack ' + style}
+  style={`--previewImage: url("${previewImageOne}");`}
+  href={linkToPackage}
+>
   <div>
     <h2>{title}</h2>
     <h3>{cost}</h3>
@@ -24,7 +29,7 @@
 </a>
 
 <style>
-  :global(.sanity-img) {
+  .pack :global(.sanity-img) {
     width: 200px;
     height: 200px;
     object-fit: cover;
@@ -35,20 +40,20 @@
     grid-area: img;
   }
 
-  .light :global(.sanity-img) {
+  .pack.light :global(.sanity-img) {
     border: solid var(--dark) 2px;
     box-shadow: var(--shadow-25);
     justify-self: center;
   }
 
-  .dark :global(.sanity-img) {
+  .pack.dark :global(.sanity-img) {
     border: solid var(--light) 2px;
     box-shadow: var(--shadow);
     justify-self: center;
   }
 
   @media (min-width: 768px) {
-    :global(.sanity-img) {
+    .pack :global(.sanity-img) {
       height: 250px;
       width: 250px;
     }
