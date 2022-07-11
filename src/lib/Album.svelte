@@ -31,6 +31,7 @@
   }
   let fullscreened
   function handleImageClicked(p) {
+    if (!document) return
     document.body.style.overflow = 'hidden'
     fullscreened = p
   }
