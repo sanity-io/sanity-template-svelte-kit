@@ -25,7 +25,7 @@
     </ul>
   </div>
 
-  <SanityImage image={previewImageOne} />
+  <SanityImage image={previewImageOne} cache={false} />
 </a>
 
 <style>

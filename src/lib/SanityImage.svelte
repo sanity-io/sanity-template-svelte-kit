@@ -8,6 +8,8 @@
   export let styles = ''
   export let classes = ''
 
+  export let cache = true
+
   // Example image document ID: image-cc93b69600f5cd1abce97fd0d4aa71793dbbba76-1350x900-png
   // Structure: image-${storedImgId}-${dimensions}-${format}
 
@@ -25,8 +27,10 @@
 {#if image}
   <img
     on:click
+    on:load={() => (loaded = true)}
     loading="lazy"
-    src={urlFor(image).width(maxWidth).height(maxHeight).fit('fillmax')}
+    src={urlFor(image).width(maxWidth).height(maxHeight).fit('fillmax') +
+      (!cache ? '&t=' + Date.now() : '')}
     alt={alt || image.alt || ''}
     style="opacity: {loaded ? 1 : 0}; transition: .2s opacity;{styles}; --image-url: url('${urlFor(
       image
@@ -35,6 +39,5 @@
       .height(maxHeight)
       .fit('fillmax')}')"
     class={`sanity-img ${classes}`}
-    on:load={() => (loaded = true)}
   />
 {/if}

@@ -51,7 +51,7 @@
     <div class="grid-wrapper">
       {#each photos as p}
         <div class={'img'}>
-          <SanityImage image={p.image} on:click={(el) => handleImageClicked(p)} />
+          <SanityImage image={p.image} on:click={(el) => handleImageClicked(p)} cache={false} />
         </div>
       {/each}
     </div>
