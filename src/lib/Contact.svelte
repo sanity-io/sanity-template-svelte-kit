@@ -1,3 +1,8 @@
+<script>
+  export let subject = 'Photography Shoot'
+  export let inbox = '2fd9fd50d27e05dc170e70b73535c011'
+</script>
+
 <section>
   <div>
     <p>
@@ -8,20 +13,29 @@
 </section>
 <section id="contact">
   <div>
-    <form on:submit|preventDefault={() => console.log('submitted')} id="contactform">
+    <form action="https://formsubmit.co/{inbox}" method="POST" id="contactform">
       <label for="name">Name</label>
-      <input type="text" class="form-control" id="name" placeholder="Name" />
+      <input type="text" class="form-control" id="name" name="name" placeholder="Name" />
 
       <label for="email">Email</label>
-      <input type="email" class="form-control" id="email" placeholder="Email" />
+      <input type="email" class="form-control" id="email" name="email" placeholder="Email" />
 
       <label for="message">Message</label>
       <textarea
         class="form-control"
         id="message"
+        name="message"
         rows="3"
         placeholder="Write your message here..."
       />
+
+      <input type="hidden" name="_next" value="http://localhost:3000/thank-you" />
+      {#if subject}
+        <input type="hidden" name="_subject" value={subject} />
+      {/if}
+      <input type="text" name="_honey" style="display:none" />
+      <input type="hidden" name="_captcha" value="false" />
+      <input type="hidden" name="_template" value="box" />
       <button type="submit" class="btn btn-primary">Send</button>
     </form>
 

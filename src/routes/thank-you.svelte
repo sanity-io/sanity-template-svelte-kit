@@ -1,0 +1,44 @@
+<script>
+  import PageTitle from '../lib/PageTitle.svelte'
+</script>
+
+<PageTitle
+  title="Thank you for your submission!"
+  quote="I look forward to helping you capture your memories."
+/>
+
+<div id="return">
+  <a href="#return" on:click={() => history.go(-1)} class="btn btn-primary">Return</a>
+</div>
+
+<style>
+  div {
+    display: flex;
+    justify-content: center;
+    padding: var(--space-2);
+  }
+
+  a {
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    font-family: var(--font-accent);
+    background: var(--dark);
+    color: var(--light);
+    padding: var(--space-1);
+    border-radius: var(--br);
+
+    -webkit-appearance: none;
+    box-shadow: var(--shadow-25);
+    transition: all 250ms ease-in-out;
+  }
+  a:hover,
+  a:focus {
+    outline: none;
+    background: var(--dark-hover);
+  }
+  a:active {
+    outline: none;
+    background: var(--dark-active);
+  }
+</style>

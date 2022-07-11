@@ -11,7 +11,7 @@
     <li>&bull;</li>
     <li><a href="/gallery">Gallery</a></li>
     <li>&bull;</li>
-    <li><a href="/pricing">Pricing</a></li>
+    <li><a href="/packages">Packages</a></li>
 
     <li id="mobile-trigger">
       <button on:click={() => (menuOpen = !menuOpen)}> Menu </button>
@@ -24,7 +24,7 @@
     </a>
     <a href="/">Home</a>
     <a href="/gallery">Gallery</a>
-    <a href="/pricing">Pricing</a>
+    <a href="/packages">Packages</a>
 
     <button on:click={() => (menuOpen = !menuOpen)}> Close </button>
   </div>

@@ -9,7 +9,7 @@
       <li>&bull;</li>
       <li><a href="/gallery">Gallery</a></li>
       <li>&bull;</li>
-      <li><a href="/pricing">Pricing</a></li>
+      <li><a href="/packages">Packages</a></li>
     </ul>
     <p id="credit">
       Site by <a href="https://ca.linkedin.com/in/austin-mcphail">McPhail.dev</a>

@@ -22,4 +22,4 @@
   <PackageAddons {addons} {blurb} />
 {/if}
 <FAQ qas={faq} />
-<Contact />
+<Contact subject={'Photography Shoot: ' + title} />
