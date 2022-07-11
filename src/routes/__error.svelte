@@ -3,8 +3,8 @@
 </script>
 
 <PageTitle
-  title="Thank you for your submission!"
-  quote="I look forward to helping you capture your memories."
+  title="Sorry, something has gone wrong."
+  subtitle="That page has either been removed or a system issue has occured."
 />
 
 <div id="return">
