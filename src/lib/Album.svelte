@@ -1,44 +1,22 @@
 <script>
   import {onDestroy, onMount} from 'svelte'
+  import {browser} from '$app/env'
 
   import SanityImage from './SanityImage.svelte'
   export let photos = []
-  function getWidthAndHeight(image) {
-    const dimensions = image?.asset?._ref?.split('-')[2]
-    const [width, height] = dimensions.split('x').map(Number)
-    return {width, height}
-  }
-  function getAverageWidthAndHeight(images) {
-    if (!images) return
-
-    const widths = images.map((i) => getWidthAndHeight(i.image)).map(({width}) => width)
-    const heights = images.map((i) => getWidthAndHeight(i.image)).map(({height}) => height)
-    return {
-      width: widths.reduce((a, b) => a + b, 0) / widths.length,
-      height: heights.reduce((a, b) => a + b, 0) / heights.length
-    }
-  }
-
-  $: average = getAverageWidthAndHeight(photos)
-
-  function getLandscapeOrPortrait(image) {
-    const {width, height} = getWidthAndHeight(image)
-    if (width >= average.width && width > height) return 'wide'
-    if (height >= average.height && height > width) return 'tall'
-    if (width > height) return 'landscape'
-    if (height > width) return 'portrait'
-    return ''
-  }
   let fullscreened
   function handleImageClicked(p) {
-    if (!document) return
-    document.body.style.overflow = 'hidden'
+    if (browser) {
+      document.body.style.overflow = 'hidden'
+    }
     fullscreened = p
   }
 
   function closeFullscreened() {
-    if (fullscreened) {
+    if (browser) {
       document.body.style.overflow = 'unset'
+    }
+    if (fullscreened) {
       fullscreened = null
     }
   }
@@ -49,13 +27,15 @@
     }
   }
   onMount(() => {
-    if (!window) return
-    window.addEventListener('keydown', handleEscape)
+    if (browser) {
+      document.addEventListener('keydown', handleEscape)
+    }
   })
 
   onDestroy(() => {
-    if (!window) return
-    window.removeEventListener('keydown', handleEscape)
+    if (browser) {
+      document.removeEventListener('keydown', handleEscape)
+    }
     closeFullscreened()
   })
 </script>
@@ -67,7 +47,7 @@
   <button on:click={closeFullscreened}>Close</button>
 {/if}
 <section>
-  {#if photos && photos.length && average}
+  {#if photos && photos.length}
     <div class="grid-wrapper">
       {#each photos as p}
         <div class={'img'}>
