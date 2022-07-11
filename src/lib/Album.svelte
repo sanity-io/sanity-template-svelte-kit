@@ -98,13 +98,8 @@
     top: 0;
     left: 0;
 
-    height: 100vh;
-    width: 100vw;
-
-    padding: var(--space-1);
-
-    display: grid;
-    place-items: center;
+    height: 100%;
+    width: 100%;
 
     z-index: 0;
 
@@ -112,7 +107,8 @@
   }
 
   div.fullscreen :global(.sanity-img) {
-    height: 95vh;
+    height: 100%;
+    width: 100%;
     object-fit: contain;
     border-radius: 5px;
   }
