@@ -1,4 +1,6 @@
 <script>
+  import {onDestroy, onMount} from 'svelte'
+
   import SanityImage from './SanityImage.svelte'
   export let photos = []
   function getWidthAndHeight(image) {
@@ -27,15 +29,48 @@
     if (height > width) return 'portrait'
     return ''
   }
+  let fullscreened
+  function handleImageClicked(p) {
+    document.body.style.overflow = 'hidden'
+    fullscreened = p
+  }
+
+  function closeFullscreened() {
+    if (fullscreened) {
+      document.body.style.overflow = 'unset'
+      fullscreened = null
+    }
+  }
+
+  function handleEscape(e) {
+    if (e.key === 'Escape') {
+      closeFullscreened()
+    }
+  }
+  onMount(() => {
+    if (!window) return
+    window.addEventListener('keydown', handleEscape)
+  })
+
+  onDestroy(() => {
+    if (!window) return
+    window.removeEventListener('keydown', handleEscape)
+    closeFullscreened()
+  })
 </script>
 
+{#if fullscreened}
+  <div class="fullscreen">
+    <SanityImage image={fullscreened.image} />
+  </div>
+  <button on:click={closeFullscreened}>Close</button>
+{/if}
 <section>
   {#if photos && photos.length && average}
     <div class="grid-wrapper">
       {#each photos as p}
-        {@const imgClass = getLandscapeOrPortrait(p.image)}
-        <div class={imgClass}>
-          <SanityImage image={p.image} />
+        <div class={'img'}>
+          <SanityImage image={p.image} on:click={(el) => handleImageClicked(p)} />
         </div>
       {/each}
     </div>
@@ -60,73 +95,63 @@
     padding-inline: var(--space-2);
   }
 
-  .grid-wrapper :global(.sanity-img) {
-    max-width: 100%;
-    height: auto;
-    vertical-align: middle;
-    display: inline-block;
+  .grid-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-1);
+    justify-content: center;
   }
 
-  /* Main CSS */
-  .grid-wrapper > div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  div.img {
+    cursor: pointer;
+    max-width: 500px;
   }
-  .grid-wrapper :global(.sanity-img) {
+  div.img :global(.sanity-img) {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     border-radius: 5px;
   }
 
-  .grid-wrapper {
+  div.fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    height: 100vh;
+    width: 100vw;
+
+    padding: var(--space-1);
+
     display: grid;
-    grid-gap: var(--space-1);
-    grid-template-columns: repeat(2, 1fr);
-    grid-auto-rows: 200px;
-    grid-auto-flow: dense;
+    place-items: center;
+
+    z-index: 0;
+
+    background: var(--dark-hover);
   }
 
-  .grid-wrapper .landscape {
-    grid-row: span 2;
-    grid-column: span 2;
+  div.fullscreen :global(.sanity-img) {
+    height: 95vh;
+    object-fit: contain;
+    border-radius: 5px;
   }
-  .grid-wrapper .wide {
-    grid-row: span 2;
-    grid-column: span 2;
+  button {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: 9999;
+    margin: var(--space-1);
+    padding: var(--space-1);
+
+    background: var(--dark);
+    border: none;
+    color: var(--light);
+    font-size: var(--font-large);
+    cursor: pointer;
   }
 
-  .grid-wrapper .portrait {
-    grid-row: span 2;
-    grid-column: span 1;
-  }
-  .grid-wrapper .tall {
-    grid-row: span 2;
-    grid-column: span 1;
-  }
-
-  @media (min-width: 768px) {
-    .grid-wrapper {
-      grid-template-columns: repeat(9, 1fr);
-    }
-
-    .grid-wrapper .landscape {
-      grid-row: span 2;
-      grid-column: span 3;
-    }
-    .grid-wrapper .wide {
-      grid-row: span 3;
-      grid-column: span 4;
-    }
-
-    .grid-wrapper .portrait {
-      grid-row: span 3;
-      grid-column: span 2;
-    }
-    .grid-wrapper .tall {
-      grid-row: span 4;
-      grid-column: span 3;
-    }
+  button:hover,
+  button:hover {
+    background: var(--dark-50);
   }
 </style>

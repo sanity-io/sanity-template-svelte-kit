@@ -24,12 +24,13 @@
 
 {#if image}
   <img
+    on:click
     loading="lazy"
     src={urlFor(image).width(maxWidth).height(maxHeight).fit('fillmax')}
     alt={alt || image.alt || ''}
-    style="aspect-ratio: {aspectRatio}; opacity: {loaded
-      ? 1
-      : 0}; transition: .2s opacity;{styles}; --image-url: url('${urlFor(image)
+    style="opacity: {loaded ? 1 : 0}; transition: .2s opacity;{styles}; --image-url: url('${urlFor(
+      image
+    )
       .width(maxWidth)
       .height(maxHeight)
       .fit('fillmax')}')"
