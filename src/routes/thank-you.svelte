@@ -8,7 +8,11 @@
 />
 
 <div id="return">
-  <a rel="prefetch" href="#return" on:click={() => history.go(-1)} class="btn btn-primary">Return</a
+  <a
+    rel="prefetch"
+    href="#return"
+    on:click|preventDefault={() => history.go(-1)}
+    class="btn btn-primary">Return</a
   >
 </div>
 
