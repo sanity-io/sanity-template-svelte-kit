@@ -20,7 +20,7 @@
   div {
     display: flex;
     justify-content: center;
-    padding: var(--space-2);
+    padding: var(--space-2);  
   }
 
   a {
