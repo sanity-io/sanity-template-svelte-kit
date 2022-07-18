@@ -1,3 +1,10 @@
+<script>
+  import SocialIcon from './SocialIcon.svelte'
+
+  export let facebookUrl = ''
+  export let instagramUrl = ''
+</script>
+
 <footer>
   <div>
     <div id="copy">
@@ -14,6 +21,10 @@
     <p id="credit">
       Site by <a href="https://ca.linkedin.com/in/austin-mcphail">McPhail.dev</a>
     </p>
+    <ul id="social">
+      <li><a href={facebookUrl} target="_blank" rel="noopener"><SocialIcon type="fb" /></a></li>
+      <li><a href={instagramUrl} target="_blank" rel="noopener"><SocialIcon type="ig" /></a></li>
+    </ul>
   </div>
 </footer>
 
@@ -30,12 +41,19 @@
     grid-template-areas:
       'nav'
       'copy'
-      'credit';
+      'credit'
+      'social';
     justify-content: center;
     justify-items: center;
     gap: var(--space-2);
     padding: var(--space-2);
     max-width: var(--content-max-width);
+  }
+
+  #social {
+    grid-area: social;
+    display: flex;
+    gap: var(--space-2);
   }
 
   #nav {
@@ -100,6 +118,10 @@
       grid-area: unset;
     }
 
+    #social {
+      grid-area: unset;
+      grid-column: span 3;
+    }
     p#credit {
       grid-area: unset;
     }

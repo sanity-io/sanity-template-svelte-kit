@@ -1,31 +1,45 @@
+<script>
+  import {urlFor} from './sanityClient'
+  import SanityImage from './SanityImage.svelte'
+
+  export let topTitle = ''
+  export let topText = ''
+
+  export let bottomTitle = ''
+  export let bottomText = ''
+
+  export let image
+</script>
+
 <div id="about">
   <section class="bio bio-light" id="bio">
     <div>
-      <h2>Dedicated to bringing your special <br /> moments to life.</h2>
+      <h2>{@html topTitle}</h2>
       <p>
-        Born and raised in Moose Jaw, SK, I started my photography journey with my first DSLR camera
-        at 15 years of age. After pursuing a Bachelors degree in Calgary, AB, I have realized that
-        being both in Alberta and Saskatchewan is what I am destined to do!
+        {@html topText}
       </p>
     </div>
   </section>
   <div class="portrait">
-    <img src="/temp/portrait.jpeg" alt="photographer portrait" />
+    {#if image}
+      <SanityImage {image} />
+    {/if}
   </div>
   <section class="bio bio-dark" id="bio-travel">
     <div>
-      <img class="mobile-portrait" src="/temp/portrait.jpeg" alt="photographer portrait" />
+      {#if image}
+        <SanityImage classes={'mobile-portrait'} {image} />
+      {/if}
       <p>
-        I am always willing to go the distance to capture your family photos, ranching, agriculture,
-        portraits, boudoir, wedding, and anything you can dream of, I am here to help!
+        {@html bottomText}
       </p>
-      <h2>Travel is my passion.</h2>
+      <h2>{@html bottomTitle}</h2>
     </div>
   </section>
 </div>
 
 <style>
-  .mobile-portrait {
+  :global(.mobile-portrait) {
     margin-bottom: var(--space-1);
     transform: translate3d(-20px, 0, 0);
   }
@@ -39,7 +53,7 @@
     position: relative;
   }
 
-  div#about img {
+  div#about :global(img) {
     width: 150px;
     height: 150px;
 
@@ -107,7 +121,7 @@
       grid-template-rows: 1fr auto 1fr;
     }
 
-    .mobile-portrait {
+    :global(.mobile-portrait) {
       display: none;
     }
     .portrait {
@@ -119,7 +133,7 @@
       padding-inline: var(--space-2);
     }
 
-    div#about img {
+    div#about :global(img) {
       width: 200px;
       height: 200px;
     }

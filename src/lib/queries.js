@@ -82,3 +82,19 @@ export function getPackageQuery(pckg) {
     faq
   }`
 }
+
+export function getSiteQuery() {
+  return /* groq */ `*[
+    _type == "siteSettings"
+  ] | order(publishedAt desc) {
+    title,
+    bioImage,
+    bio1Title,
+    bio1,
+    bio2Title,
+    bio2,
+    facebookUrl,
+    instagramUrl,
+    keywords
+  }`
+}

@@ -1,5 +1,9 @@
 <script>
+  import SocialIcon from './SocialIcon.svelte'
+
   let menuOpen = false
+  export let facebookUrl = ''
+  export let instagramUrl = ''
 </script>
 
 <header>
@@ -7,6 +11,14 @@
     <img src="/header-logo.png" alt="Kelsey Lea Photography" />
   </a>
   <ul>
+    <li class="social">
+      <a href={facebookUrl} target="_blank" rel="noopener"><SocialIcon type="fb" /></a>
+    </li>
+    <li class="social" />
+    <li class="social">
+      <a href={instagramUrl} target="_blank" rel="noopener"><SocialIcon type="ig" /></a>
+    </li>
+    <li class="social" />
     <li><a href="/">Home</a></li>
     <li>&bull;</li>
     <li><a href="/gallery">Gallery</a></li>
@@ -99,7 +111,7 @@
     color: inherit;
   }
 
-  li {
+  li:not(.social) {
     display: none;
   }
   #mobile-trigger {
@@ -142,7 +154,7 @@
     #mobile-menu {
       display: none;
     }
-    li {
+    li:not(.social) {
       display: inline-block;
     }
     #mobile-trigger {
