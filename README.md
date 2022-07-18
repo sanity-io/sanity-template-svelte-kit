@@ -44,7 +44,7 @@ npm run dev -- --open
 
 ## Building
 
-Your site should already be connected to [Netlify](https://netlify.com). If you want, you can install any [adapter](https://kit.svelte.dev/docs#adapters) for your target environment. To execute builds locally, run:
+If you want, you can install any [adapter](https://kit.svelte.dev/docs#adapters) for your target environment. To execute builds locally, run:
 
 ```bash
 npm run build

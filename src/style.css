@@ -8,6 +8,9 @@
   --dark-50: rgba(54, 69, 79, 0.5);
   --dark-hover: rgba(31, 39, 46, 1);
   --dark-hover-25: rgba(31, 39, 46, 0.25);
+  --dark-hover-50: rgba(31, 39, 46, 0.5);
+  --dark-hover-75: rgba(31, 39, 46, 0.75);
+  --dark-hover-95: rgba(31, 39, 46, 0.95);
   --dark-active: rgba(72, 90, 106, 1);
 
   --font-normal: 16px;

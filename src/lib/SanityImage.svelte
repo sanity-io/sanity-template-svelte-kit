@@ -29,7 +29,7 @@
     on:click
     on:load={() => (loaded = true)}
     loading="lazy"
-    src={urlFor(image).width(maxWidth).height(maxHeight).fit('fillmax') +
+    src={urlFor(image).maxWidth(maxWidth).maxHeight(maxHeight).fit('fillmax') +
       (!cache ? '&t=' + Date.now() : '')}
     alt={alt || image.alt || ''}
     style="opacity: {loaded ? 1 : 0}; transition: .2s opacity;{styles}; --image-url: url('${urlFor(

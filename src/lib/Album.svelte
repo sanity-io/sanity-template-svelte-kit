@@ -3,7 +3,9 @@
   import {browser} from '$app/env'
 
   import SanityImage from './SanityImage.svelte'
+  import {urlFor} from './sanityClient'
   export let photos = []
+
   let fullscreened
   function handleImageClicked(p) {
     if (browser) {
@@ -41,89 +43,123 @@
 </script>
 
 {#if fullscreened}
-  <div class="fullscreen">
-    <SanityImage image={fullscreened.image} />
+  <div class="fs-container">
+    <div class="fs-image-container">
+      <SanityImage maxHeight={1000} image={fullscreened.image} />
+    </div>
+    <button on:click={closeFullscreened}>Close</button>
   </div>
-  <button on:click={closeFullscreened}>Close</button>
 {/if}
-<section>
-  {#if photos && photos.length}
-    <div class="grid-wrapper">
-      {#each photos as p}
-        <div class={'img'}>
-          <SanityImage image={p.image} on:click={(el) => handleImageClicked(p)} cache={false} />
-        </div>
-      {/each}
-    </div>
-  {/if}
 
-  {#if !photos.length}
-    <div class="no-images">
-      <p>This album doesn't have any photos currently.</p>
-      <p><strong>Check back later!</strong></p>
-    </div>
-  {/if}
+<section class="container">
+  <ul class="image-gallery">
+    {#each photos as p}
+      <li>
+        <SanityImage
+          maxHeight={300}
+          image={p.image}
+          on:click={(el) => handleImageClicked(p)}
+          cache={false}
+        />
+      </li>
+    {/each}
+  </ul>
 </section>
 
+{#if !photos.length}
+  <div class="no-images">
+    <p>This album doesn't have any photos currently.</p>
+    <p><strong>Check back later!</strong></p>
+  </div>
+{/if}
+
 <style>
-  .no-images {
-    text-align: center;
-    line-height: var(--font-largest);
+  .fs-container {
+    top: 0;
+    left: 0;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+
+    z-index: 1000;
+    background: var(--dark-hover-95);
   }
-  section {
+
+  .fs-image-container {
+    display: grid;
+
+    place-items: center;
+    align-items: center;
+
+    height: 100%;
+    width: 100%;
+  }
+
+  .fs-image-container :global(img) {
+    object-fit: contain;
+    border-radius: 3px;
+    cursor: pointer;
+
+    width: 100%;
+    height: 100%;
+    max-width: 90vw;
+    max-height: calc(95vh);
+    object-fit: contain;
+  }
+  .container {
     margin-top: var(--space-2);
     padding-bottom: var(--space-5);
     padding-inline: var(--space-2);
   }
-
-  .grid-wrapper {
+  .image-gallery {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--space-1);
+    gap: var(--space-2);
+  }
+
+  .image-gallery > li {
+    flex: auto;
+    height: calc(100vw / 2);
     justify-content: center;
+    display: flex;
   }
 
-  div.img {
+  @media (min-width: 768px) {
+    .image-gallery > li {
+      height: calc(100vw / 3);
+    }
+  }
+
+  .image-gallery li :global(img) {
+    object-fit: contain;
+    vertical-align: middle;
+    border-radius: 3px;
     cursor: pointer;
-    max-width: 500px;
-  }
-  div.img :global(.sanity-img) {
-    width: 100%;
+
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
     object-fit: contain;
-    border-radius: 5px;
   }
 
-  div.fullscreen {
-    position: fixed;
-    top: 0;
-    left: 0;
-
-    height: 100%;
-    width: 100%;
-
-    z-index: 0;
-
-    background: var(--dark-hover);
+  .no-images {
+    text-align: center;
+    line-height: var(--font-largest);
   }
 
-  div.fullscreen :global(.sanity-img) {
-    height: 100%;
-    width: 100%;
-    object-fit: contain;
-    border-radius: 5px;
-  }
   button {
     position: fixed;
     bottom: 0;
     right: 0;
     z-index: 9999;
     margin: var(--space-1);
-    padding: var(--space-1);
+    padding: 1rem;
+    border-radius: 3px;
 
     background: var(--dark);
     border: none;
     color: var(--light);
-    font-size: var(--font-large);
     cursor: pointer;
   }
 
