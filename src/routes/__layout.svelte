@@ -4,7 +4,7 @@
     const siteRes = await fetch(`/site.json`)
     const site = await siteRes.json()
 
-    return {props: {url: url.href, site}}
+    return {props: {url: url.href, site}, stuff: {url: url.href, site}}
   }
 </script>
 
