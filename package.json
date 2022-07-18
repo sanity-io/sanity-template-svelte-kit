@@ -12,6 +12,7 @@
   },
   "devDependencies": {
     "@portabletext/svelte": "^1.0.1",
+    "@sveltejs/adapter-static": "^1.0.0-next.37",
     "@sveltejs/adapter-vercel": "^1.0.0-next.53",
     "@sveltejs/kit": "^1.0.0-next.338",
     "eslint": "^8.16.0",
