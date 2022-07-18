@@ -2,7 +2,7 @@ import {getSiteQuery} from '$lib/queries'
 import {client} from '$lib/sanityClient'
 
 export async function get() {
-  const {site} = await client.fetch(/* groq */ `{
+  const {site} = await client.fetch(`{
   	"site": ${getSiteQuery()},
   }`)
 
