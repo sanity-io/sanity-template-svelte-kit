@@ -5,7 +5,7 @@
     "dataset": "production"
   },
   "project": {
-    "name": "kelseyleaphotography"
+    "name": "Kelsey Lea Photography"
   },
   "plugins": [
     "@sanity/base",
