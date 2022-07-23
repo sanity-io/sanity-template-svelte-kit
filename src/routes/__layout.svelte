@@ -22,6 +22,7 @@
 
 <svelte:head>
   <title>{site.title}</title>
+  <meta name="description" content={site.description ?? "Kelsey Lea's Photography Portfolio"} />
 </svelte:head>
 
 <Header facebookUrl={site.facebookUrl} instagramUrl={site.instagramUrl} />

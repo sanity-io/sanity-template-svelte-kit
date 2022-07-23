@@ -4,6 +4,7 @@
   "scripts": {
     "start": "svelte-kit dev",
     "build": "svelte-kit build",
+    "postbuild": "svelte-sitemap --domain https://kelseyleaphotography.com -o .vercel_build_output/static",
     "preview": "svelte-kit preview",
     "build:sanity": "cd studio && npm run build",
     "start:sanity": "cd studio && npm run start",
@@ -20,7 +21,8 @@
     "eslint-plugin-svelte3": "^4.0.0",
     "prettier": "^2.6.2",
     "prettier-plugin-svelte": "^2.7.0",
-    "svelte": "^3.48.0"
+    "svelte": "^3.48.0",
+    "svelte-sitemap": "^2.5.1"
   },
   "type": "module",
   "dependencies": {
