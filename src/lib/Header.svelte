@@ -7,9 +7,11 @@
 </script>
 
 <header>
-  <a href="/" id="logo">
-    <img src="/header-logo.png" alt="Kelsey Lea Photography" />
-  </a>
+  <h1>
+    <a href="/" id="logo">
+      <img src="/header-logo.png" alt="Kelsey Lea Photography" />
+    </a>
+  </h1>
   <ul>
     <li class="social">
       <a href={facebookUrl} target="_blank" rel="noopener"><SocialIcon type="fb" /></a>
