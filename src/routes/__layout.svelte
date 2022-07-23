@@ -32,7 +32,6 @@
       <slot />
     </Transition>
   </main>
-
   <Footer facebookUrl={site.facebookUrl} instagramUrl={site.instagramUrl} />
 </div>
 
