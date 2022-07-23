@@ -36,7 +36,11 @@ export default {
       name: 'publishedAt',
       type: 'datetime',
       title: 'Published at',
-      description: 'This can be used to schedule post for publishing.'
+      description: 'This can be used to schedule post for publishing.',
+      options: {
+        dateFormat: 'YYYY-MM-DD',
+        timeFormat: 'h:mm a'
+      }
     },
     {
       name: 'showOnHome',
@@ -46,14 +50,31 @@ export default {
     }
   ],
   initialValue: {
-    publishedAt: new Date().toDateString(),
-    showOnHome: true
+    publishedAt: new Date().toISOString(),
+    showOnHome: false
   },
   preview: {
     select: {
-      title: 'publishedAt',
+      title: 'image.alt',
       media: 'image',
-      subtitle: 'album.title'
+      subtitle: 'publishedAt'
+    },
+    prepare(selection) {
+      const {title, media, subtitle} = selection
+      const date = new Date(subtitle).toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: 'numeric',
+        minute: 'numeric',
+        hour12: true,
+        timeZoneName: 'short'
+      })
+      return {
+        title: title,
+        media: media,
+        subtitle: date
+      }
     }
   }
 }

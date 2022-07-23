@@ -3,25 +3,16 @@ export default {
     {
       name: 'document-list',
       options: {title: 'Recent Photos', order: '_createdAt desc', types: ['photo']},
-      layout: {width: 'medium'}
+      layout: {width: 'small'}
     },
     {
       name: 'document-list',
       options: {title: 'Albums', types: ['album']},
-      layout: {width: 'medium'}
+      layout: {width: 'small'}
     },
     {
-      name: 'project-info',
-      options: {
-        data: [
-          {
-            title: 'GitHub repo',
-            value: 'https://github.com/AustinMcPhail/kelseyleaphotography',
-            category: 'Code'
-          },
-          {title: 'Frontend', value: '', category: 'apps'}
-        ]
-      },
+      name: 'document-list',
+      options: {title: 'Packages', types: ['package']},
       layout: {width: 'small'}
     }
   ]
