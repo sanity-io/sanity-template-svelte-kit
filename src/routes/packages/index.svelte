@@ -34,10 +34,6 @@
     cost={pack.cost}
     previewImageOne={pack.cover}
     style={i % 2 === 0 ? 'dark' : 'light'}
-    features={[
-      '1 hour session in a local area.',
-      '1 outfit, additional extra.',
-      '15 edited digital images.'
-    ]}
+    features={pack.features}
   />
 {/each}
