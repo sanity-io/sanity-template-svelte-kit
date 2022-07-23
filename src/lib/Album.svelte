@@ -55,12 +55,7 @@
   <ul class="image-gallery">
     {#each photos as p}
       <li>
-        <SanityImage
-          maxHeight={300}
-          image={p.image}
-          on:click={(el) => handleImageClicked(p)}
-          cache={false}
-        />
+        <SanityImage maxHeight={300} image={p.image} on:click={(el) => handleImageClicked(p)} />
       </li>
     {/each}
   </ul>

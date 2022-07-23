@@ -24,7 +24,7 @@
 
 {#key index}
   <div id="photo" transition:fade={{duration: 200}}>
-    <SanityImage image={image.image} cache={false} />
+    <SanityImage image={image.image} />
 
     <div id="controls">
       <button on:click={prev}>&larr;</button>
