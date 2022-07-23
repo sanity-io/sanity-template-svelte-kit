@@ -1,5 +1,6 @@
 <script>
   import {fade} from 'svelte/transition'
+  import {urlFor} from './sanityClient'
   import SanityImage from './SanityImage.svelte'
 
   export let photos = []
@@ -24,7 +25,15 @@
 
 {#key index}
   <div id="photo" transition:fade={{duration: 200}}>
-    <SanityImage image={image.image} />
+    {#if image}
+      <img
+        on:click
+        loading="lazy"
+        src={urlFor(image.image).width(1200).height(1200).fit('clip')}
+        alt={image.image.alt || ''}
+        class={`sanity-img`}
+      />
+    {/if}
 
     <div id="controls">
       <button on:click={prev}>&larr;</button>
