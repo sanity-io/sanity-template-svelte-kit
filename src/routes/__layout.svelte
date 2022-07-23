@@ -1,7 +1,7 @@
 <script context="module">
   /** @type {import('@sveltejs/kit').Load} */
   export const load = async ({url, fetch}) => {
-    const siteRes = await fetch(`/site.json`)
+    const siteRes = await fetch(`./site.json`)
     const site = await siteRes.json()
 
     return {props: {url: url.href, site}, stuff: {url: url.href, site}}
@@ -23,6 +23,7 @@
 <svelte:head>
   <title>{site.title}</title>
 </svelte:head>
+
 <Header facebookUrl={site.facebookUrl} instagramUrl={site.instagramUrl} />
 
 <div>
