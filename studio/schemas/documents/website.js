@@ -52,6 +52,12 @@ export default {
       description: 'The link to your Instagram page.'
     },
     {
+      name: 'description',
+      type: 'text',
+      title: 'Description',
+      description: 'Describe your site for search engines and social media.'
+    },
+    {
       name: 'keywords',
       type: 'array',
       title: 'Keywords',

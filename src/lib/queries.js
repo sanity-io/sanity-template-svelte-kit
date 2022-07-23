@@ -95,6 +95,7 @@ export function getSiteQuery() {
     bio2,
     facebookUrl,
     instagramUrl,
+    description,
     keywords
   }`
 }
