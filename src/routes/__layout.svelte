@@ -29,7 +29,6 @@
 </svelte:head>
 
 <Header facebookUrl={site.facebookUrl} instagramUrl={site.instagramUrl} />
-
 <div>
   <main>
     <Transition {url}>
