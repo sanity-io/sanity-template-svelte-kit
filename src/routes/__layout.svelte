@@ -14,6 +14,7 @@
   import Footer from '../lib/Footer.svelte'
   import Transition from '../lib/Transition.svelte'
   import {siteStore} from '../lib/store'
+  import {urlFor} from '../lib/sanityClient'
 
   export let url
   export let site
@@ -24,6 +25,7 @@
   <title>{site.title}</title>
   <meta name="description" content={site.description ?? "Kelsey Lea's Photography Portfolio"} />
   <meta name="keywords" content={site.keywords?.join(', ') ?? 'Photography'} />
+  <meta property="og:image" content={urlFor(site.bioImage).width(500).height(500).url()} />
 </svelte:head>
 
 <Header facebookUrl={site.facebookUrl} instagramUrl={site.instagramUrl} />
