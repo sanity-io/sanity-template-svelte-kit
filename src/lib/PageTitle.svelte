@@ -40,7 +40,7 @@
   p.subtitle {
     font-family: var(--font);
     font-size: var(--font-large);
-    color: var(--dark-50);
+    color: var(--dark-75);
     text-align: center;
     margin-bottom: var(--space-2);
   }
