@@ -1,4 +1,5 @@
 <script>
+  import {dev} from '$app/env'
   export let subject = 'Photography Shoot'
   export let inbox = 'bc9e8bcd4dde63a9a56610d20502ab2b'
 </script>
@@ -29,7 +30,11 @@
         placeholder="Write your message here..."
       />
 
-      <input type="hidden" name="_next" value="http://localhost:3000/thank-you" />
+      <input
+        type="hidden"
+        name="_next"
+        value={`${dev ? 'http://localhost:3000' : 'https://kelseyleaphotography.com'}/thank-you`}
+      />
       {#if subject}
         <input type="hidden" name="_subject" value={subject} />
       {/if}
