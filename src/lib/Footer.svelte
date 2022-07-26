@@ -22,8 +22,16 @@
       Site by <a href="https://ca.linkedin.com/in/austin-mcphail">McPhail.dev</a>
     </p>
     <ul id="social">
-      <li><a href={facebookUrl} target="_blank" rel="noopener"><SocialIcon type="fb" /></a></li>
-      <li><a href={instagramUrl} target="_blank" rel="noopener"><SocialIcon type="ig" /></a></li>
+      <li>
+        <a href={facebookUrl} target="_blank" rel="noopener" aria-label="Facebook">
+          <SocialIcon type="fb" />
+        </a>
+      </li>
+      <li>
+        <a href={instagramUrl} target="_blank" rel="noopener" aria-label="Instagram">
+          <SocialIcon type="ig" />
+        </a>
+      </li>
     </ul>
   </div>
 </footer>

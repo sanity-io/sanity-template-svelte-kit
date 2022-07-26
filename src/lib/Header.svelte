@@ -14,11 +14,15 @@
   </h1>
   <ul>
     <li class="social">
-      <a href={facebookUrl} target="_blank" rel="noopener"><SocialIcon type="fb" /></a>
+      <a href={facebookUrl} aria-label="Facebook" target="_blank" rel="noopener">
+        <SocialIcon type="fb" />
+      </a>
     </li>
     <li class="social" />
     <li class="social">
-      <a href={instagramUrl} target="_blank" rel="noopener"><SocialIcon type="ig" /></a>
+      <a href={instagramUrl} aria-label="Instagram" target="_blank" rel="noopener">
+        <SocialIcon type="ig" />
+      </a>
     </li>
     <li class="social" />
     <li><a href="/">Home</a></li>
