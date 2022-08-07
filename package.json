@@ -4,6 +4,7 @@
   "scripts": {
     "start": "svelte-kit dev",
     "build": "svelte-kit build",
+    "build:prod": "(sleep 30 && svelte-kit build)",
     "postbuild": "svelte-sitemap --domain https://kelseyleaphotography.com -o .vercel_build_output/static",
     "preview": "svelte-kit preview",
     "build:sanity": "cd studio && npm run build",
