@@ -6,12 +6,14 @@
   export let cost
   export let features = []
 
-  const previewImageOneUrl = urlFor(previewImageOne).url()
-  const previewImageTwoUrl = urlFor(previewImageTwo).url()
+  const previewImageOneUrl = previewImageOne ? urlFor(previewImageOne).url() : ''
+  const previewImageTwoUrl = previewImageTwo ? urlFor(previewImageTwo).url() : ''
 </script>
 
 <section class="features">
-  <div class="img" style={`--previewImage: url("${previewImageOneUrl}");`} />
+  {#if previewImageOneUrl}
+    <div class="img" style={`--previewImage: url("${previewImageOneUrl}");`} />
+  {/if}
   <div class="content">
     <p>Starting at</p>
     <h3>{cost}</h3>
@@ -21,7 +23,9 @@
       {/each}
     </ul>
   </div>
-  <div class="img" style={`--previewImage: url("${previewImageTwoUrl}");`} />
+  {#if previewImageTwoUrl}
+    <div class="img" style={`--previewImage: url("${previewImageTwoUrl}");`} />
+  {/if}
 </section>
 
 <style>
@@ -62,6 +66,7 @@
   }
 
   .content {
+    grid-area: content;
     padding: var(--space-2);
   }
 
@@ -70,6 +75,8 @@
     align-items: center;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 2fr 1fr;
+
+    grid-template-areas: '. content .';
 
     background: var(--dark);
     color: var(--light);

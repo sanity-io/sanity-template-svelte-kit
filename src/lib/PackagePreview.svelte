@@ -11,8 +11,7 @@
 
 <a
   rel="prefetch"
-  class={'pack ' + style}
-  style={`--previewImage: url("${previewImageOne}");`}
+  class={'pack ' + style + `${previewImageOne ? '' : ' no-img'}`}
   href={linkToPackage}
 >
   <div>
@@ -78,6 +77,9 @@
 
     outline: none;
   }
+  a.no-img {
+    grid-template-areas: '. info .';
+  }
 
   .dark {
     background: var(--dark);
@@ -98,9 +100,15 @@
     .dark {
       grid-template-areas: '. info img .';
     }
+    .no-img.dark {
+      grid-template-areas: '. info .';
+    }
 
     .light {
       grid-template-areas: '. img info .';
+    }
+    .no-img.light {
+      grid-template-areas: '. info .';
     }
 
     a > div {
@@ -109,7 +117,6 @@
 
     a {
       gap: var(--space-5);
-      grid-template-columns: repeat(4, 1fr);
     }
   }
 

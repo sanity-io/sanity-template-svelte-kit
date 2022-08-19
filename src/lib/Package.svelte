@@ -21,5 +21,7 @@
 {#if addons?.length || blurb}
   <PackageAddons {addons} {blurb} />
 {/if}
-<FAQ qas={faq} />
+{#if faq?.length}
+  <FAQ qas={faq} />
+{/if}
 <Contact subject={'Photography Shoot: ' + title} />
