@@ -47,6 +47,9 @@
     display: none;
     justify-content: center;
     background: linear-gradient(to bottom, var(--light) 50%, var(--dark) 50%);
+
+    margin-bottom: -1px;
+    padding-bottom: 1px;
   }
 
   div#about {
@@ -104,7 +107,7 @@
   }
 
   #bio-travel {
-    box-shadow: var(--shadow);
+    box-shadow: var(--shadow-inset-bottom);
   }
 
   h2 {
@@ -116,6 +119,10 @@
   }
 
   @media (min-width: 768px) {
+    h2 {
+      max-width: 25vw;
+    }
+
     div#about {
       display: grid;
       grid-template-rows: 1fr auto 1fr;
