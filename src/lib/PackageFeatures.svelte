@@ -10,7 +10,7 @@
   const previewImageTwoUrl = previewImageTwo ? urlFor(previewImageTwo).url() : ''
 </script>
 
-<section class="features">
+<section class="features" class:hasPreview={previewImageOne && previewImageTwo}>
   {#if previewImageOneUrl}
     <div class="img" style={`--previewImage: url("${previewImageOneUrl}");`} />
   {/if}
@@ -66,7 +66,6 @@
   }
 
   .content {
-    grid-area: content;
     padding: var(--space-2);
   }
 
@@ -74,18 +73,18 @@
     display: grid;
     align-items: center;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 2fr 1fr;
-
-    grid-template-areas: '. content .';
-
     background: var(--dark);
     color: var(--light);
 
     box-shadow: var(--shadow-inset-top);
   }
 
+  .features.hasPreview {
+    grid-template-rows: 1fr 2fr 1fr;
+  }
+
   @media (min-width: 768px) {
-    section.features {
+    section.features.hasPreview {
       grid-template-columns: 1fr 2fr 1fr;
       grid-template-rows: 1fr;
     }
