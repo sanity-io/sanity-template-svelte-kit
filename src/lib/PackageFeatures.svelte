@@ -6,8 +6,8 @@
   export let cost
   export let features = []
 
-  const previewImageOneUrl = previewImageOne ? urlFor(previewImageOne).url() : ''
-  const previewImageTwoUrl = previewImageTwo ? urlFor(previewImageTwo).url() : ''
+  const previewImageOneUrl = previewImageOne ? urlFor(previewImageOne).height(500).url() : ''
+  const previewImageTwoUrl = previewImageTwo ? urlFor(previewImageTwo).height(500).url() : ''
 </script>
 
 <section class="features" class:hasPreview={previewImageOne && previewImageTwo}>

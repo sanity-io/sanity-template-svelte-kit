@@ -24,7 +24,7 @@
     </ul>
   </div>
 
-  <SanityImage image={previewImageOne} />
+  <SanityImage height={500} image={previewImageOne} />
 </a>
 
 <style>

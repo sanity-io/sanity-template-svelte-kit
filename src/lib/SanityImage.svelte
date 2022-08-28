@@ -8,6 +8,8 @@
   export let styles = ''
   export let classes = ''
   export let id = ''
+  export let height = ''
+  export let fit = 'fillmax'
 </script>
 
 {#if image}
@@ -15,12 +17,14 @@
     on:click
     {id}
     loading="lazy"
-    src={urlFor(image).maxWidth(maxWidth).maxHeight(maxHeight).fit('fillmax')}
+    src={height
+      ? urlFor(image).height(height).maxWidth(maxWidth).maxHeight(maxHeight).fit(fit)
+      : urlFor(image).maxWidth(maxWidth).maxHeight(maxHeight).fit(fit)}
     alt={alt || image.alt || ''}
     style="transition: .2s opacity; {styles}; --image-url: url('${urlFor(image)
       .width(maxWidth)
       .height(maxHeight)
-      .fit('fillmax')}')"
+      .fit(fit)}')"
     class={`sanity-img ${classes}`}
   />
 {/if}

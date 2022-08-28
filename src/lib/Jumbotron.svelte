@@ -1,51 +1,82 @@
 <script>
-  import {fade} from 'svelte/transition'
+  import {onMount} from 'svelte'
+
   import {urlFor} from './sanityClient'
-  import SanityImage from './SanityImage.svelte'
 
   export let photos = []
-
   let index = 0
+  $: nextIndex = index === photos.length - 1 ? 0 : index + 1
+  $: prevIndex = index === 0 ? photos.length - 1 : index - 1
   $: image = photos[index]
+
+  let timeout
   function next() {
-    if (index === photos.length - 1) {
-      index = 0
-    } else {
-      index = index + 1
+    state = 'next'
+    if (timeout) {
+      clearTimeout(timeout)
     }
+    timeout = setTimeout(() => {
+      index = nextIndex
+      image = photos[index]
+      state = ''
+    }, 500)
   }
   function prev() {
-    if (index === 0) {
-      index = photos.length - 1
-    } else {
-      index = index - 1
+    state = 'prev'
+    if (timeout) {
+      clearTimeout(timeout)
     }
+    timeout = setTimeout(() => {
+      index = prevIndex
+      image = photos[index]
+      state = ''
+    }, 500)
   }
+
+  let state = ''
+  let interval
+  onMount(() => {
+    interval = setInterval(() => {
+      next(false)
+    }, 5000)
+  })
 </script>
 
 {#key index}
-  <div id="photo" transition:fade={{duration: 200}}>
-    {#if image}
-      <img
-        on:click
-        loading="lazy"
-        src={urlFor(image.image).width(1200).height(1200).fit('clip')}
-        alt={image.image.alt || ''}
-        class={`sanity-img`}
-      />
-    {/if}
+  <div id="wrapper">
+    <div
+      class={`jumbo ${state}`}
+      style={`
+      --img: url('${urlFor(photos[index].image).height(1000).width(1000)}');
+      --next-img: url('${urlFor(photos[nextIndex].image).height(1000).width(1000)}');
+      --prev-img: url('${urlFor(photos[prevIndex].image).height(1000).width(1000)}');
+      `}
+      role="img"
+      alt={photos[index].image.alt || ''}
+    />
 
     <div id="controls">
-      <button on:click={prev}>&larr;</button>
+      <button
+        on:click={() => {
+          if (interval) clearInterval(interval)
+          prev()
+        }}>&larr;</button
+      >
       <a rel="prefetch" href="/gallery/{image.album?.album?.slug?.current}">View Album</a>
-      <button on:click={next}>&rarr;</button>
+      <button
+        on:click={() => {
+          if (interval) clearInterval(interval)
+          next()
+        }}>&rarr;</button
+      >
     </div>
   </div>
 {/key}
 
 <style>
-  #photo {
+  #wrapper {
     position: relative;
+
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -53,23 +84,31 @@
     box-shadow: inset 0px -10rem 50px 0px rgba(0, 0, 0, 0.5);
   }
 
-  :global(#photo .sanity-img) {
+  .jumbo {
     position: absolute;
-    height: 100%;
+    top: 0;
+    left: 0;
     width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 
-    object-fit: cover;
-    /* transitions */
-    -webkit-transition: all 0.4s ease;
-    -moz-transition: all 0.4s ease;
-    -ms-transition: all 0.4s ease;
-    -o-transition: all 0.4s ease;
-    transition: all 0.4s ease;
-
-    z-index: -1;
+    background-image: var(--img);
   }
 
-  #photo #controls {
+  .next {
+    background-image: var(--next-img);
+    transition: 500ms;
+  }
+  .prev {
+    background-image: var(--prev-img);
+    transition: 500ms;
+  }
+
+  #wrapper #controls {
+    position: absolute;
+
     display: flex;
     align-items: center;
     gap: var(--space-2);
@@ -77,13 +116,14 @@
 
     color: var(--light);
   }
-  #photo #controls button {
+
+  #wrapper #controls button {
     background: none;
     border: none;
     padding: 0;
     margin: 0;
   }
-  #photo #controls a {
+  #wrapper #controls a {
     text-decoration: none;
   }
 

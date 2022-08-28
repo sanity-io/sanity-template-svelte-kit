@@ -6,7 +6,7 @@
   export let style
   export let linkToAlbum
 
-  const previewImageOne = urlFor(cover).url()
+  const previewImageOne = urlFor(cover).height(500).url()
 </script>
 
 <a
