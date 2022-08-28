@@ -3,7 +3,6 @@
   import {browser} from '$app/env'
 
   import SanityImage from './SanityImage.svelte'
-  import {urlFor} from './sanityClient'
   export let photos = []
 
   let fullscreened
@@ -55,7 +54,7 @@
   <ul class="image-gallery">
     {#each photos as p}
       <li>
-        <SanityImage maxHeight={300} image={p.image} on:click={(el) => handleImageClicked(p)} />
+        <SanityImage height={500} image={p.image} on:click={(el) => handleImageClicked(p)} />
       </li>
     {/each}
   </ul>

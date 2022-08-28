@@ -30,10 +30,10 @@
   }
 
   .travel {
-    background-image: url('travel.png');
+    background-image: url('/travel.png');
   }
   .heart {
-    background-image: url('heart.png');
+    background-image: url('/heart.png');
   }
 
   h2 {
