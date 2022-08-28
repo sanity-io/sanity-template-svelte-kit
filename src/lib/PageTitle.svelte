@@ -1,7 +1,7 @@
 <script>
   export let title
   export let quote
-  export let subtitle
+  export let subtitle = ''
   export let splash = 'travel'
 </script>
 

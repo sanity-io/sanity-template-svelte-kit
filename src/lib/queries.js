@@ -46,6 +46,7 @@ export function getAlbumQuery(album) {
     slug,
     cover,
     quote,
+    splash,
   }`
 }
 
@@ -79,7 +80,8 @@ export function getPackageQuery(pckg) {
     quote,
     img1,
     img2,
-    faq
+    faq,
+    splash,
   }`
 }
 

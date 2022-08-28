@@ -9,13 +9,15 @@ export async function get({params: {pack}}) {
   ).package[0]
 
   if (pckg) {
-    const {title, cost, quote, img1, img2, blurb, features, addons, faq} = pckg
+    const {title, cost, quote, img1, img2, blurb, features, addons, faq, splash} = pckg
+    console.log({...pckg})
     return {
       status: 200,
       body: {
         pack: {
           title,
           quote,
+          splash,
           cost,
           blurb,
           previewImageOne: img1,

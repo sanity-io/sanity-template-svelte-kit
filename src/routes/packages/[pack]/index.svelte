@@ -23,6 +23,7 @@
   import PageTitle from '../../../lib/PageTitle.svelte'
   export let title
   export let quote
+  export let splash
   export let cost
   export let blurb
   export let previewImageOne
@@ -32,7 +33,7 @@
   export let faq
 </script>
 
-<PageTitle {title} subtitle="Packages & Pricing" {quote} />
+<PageTitle {title} subtitle="Packages & Pricing" {quote} {splash} />
 
 <Package
   {title}

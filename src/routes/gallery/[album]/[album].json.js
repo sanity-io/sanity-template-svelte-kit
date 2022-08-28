@@ -21,6 +21,7 @@ export async function get({params: {album}}) {
         album: {
           name: alb.title,
           quote: alb.quote,
+          splash: alb.splash,
           photos: images
         }
       }

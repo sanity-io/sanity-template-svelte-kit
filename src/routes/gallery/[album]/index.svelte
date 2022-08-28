@@ -25,11 +25,12 @@
   export let name
   export let photos
   export let quote
+  export let splash
 </script>
 
 <svelte:head>
   <title>Kelsey Lea Photography | Gallery | {name}</title>
 </svelte:head>
 
-<PageTitle title={name} subtitle="Gallery" {quote} />
+<PageTitle title={name} subtitle="Gallery" {quote} {splash} />
 <Album {photos} />
