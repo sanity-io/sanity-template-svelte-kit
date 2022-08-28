@@ -2,9 +2,10 @@
   export let title
   export let quote
   export let subtitle
+  export let splash = 'travel'
 </script>
 
-<section>
+<section class={splash}>
   <h2>{title}</h2>
   {#if subtitle}
     <p class="subtitle">{subtitle}</p>
@@ -22,6 +23,17 @@
     padding-inline: var(--space-2);
     color: var(--dark);
     box-shadow: var(--shadow-25);
+
+    background-size: 25%;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .travel {
+    background-image: url('travel.png');
+  }
+  .heart {
+    background-image: url('heart.png');
   }
 
   h2 {

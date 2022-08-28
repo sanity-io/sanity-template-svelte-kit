@@ -1,5 +1,4 @@
 <script>
-  import {urlFor} from './sanityClient'
   import SanityImage from './SanityImage.svelte'
 
   export let topTitle = ''
@@ -20,15 +19,13 @@
       </p>
     </div>
   </section>
-  <div class="portrait">
-    {#if image}
-      <SanityImage {image} />
-    {/if}
-  </div>
+  {#if image}
+    <SanityImage classes={'portrait desktop-portrait'} {image} />
+  {/if}
   <section class="bio bio-dark" id="bio-travel">
     <div>
       {#if image}
-        <SanityImage classes={'mobile-portrait'} {image} />
+        <SanityImage classes={'portrait mobile-portrait'} {image} />
       {/if}
       <p>
         {@html bottomText}
@@ -39,29 +36,13 @@
 </div>
 
 <style>
-  :global(.mobile-portrait) {
-    margin-bottom: var(--space-1);
-    transform: translate3d(-20px, 0, 0);
-  }
-  .portrait {
-    display: none;
-    justify-content: center;
-    background: linear-gradient(to bottom, var(--light) 50%, var(--dark) 50%);
-
-    margin-bottom: -1px;
-    padding-bottom: 1px;
-  }
-
   div#about {
     position: relative;
   }
 
-  div#about :global(img) {
+  :global(.portrait) {
     width: 150px;
     height: 150px;
-
-    float: left;
-    clear: both;
 
     shape-outside: ellipse();
 
@@ -70,6 +51,18 @@
     -webkit-appearance: none;
     box-shadow: 0px 0px 4px var(--dark);
     object-fit: cover;
+  }
+
+  :global(.mobile-portrait) {
+    float: left;
+    clear: both;
+
+    margin-bottom: var(--space-1);
+    transform: translate3d(-20px, 0, 0);
+  }
+
+  :global(.desktop-portrait) {
+    display: none;
   }
 
   section.bio {
@@ -84,15 +77,28 @@
     color: var(--light);
   }
 
-  @media (max-width: 766px) {
-    section.bio.bio-dark h2 {
-      margin-bottom: 0;
-    }
-  }
-
   @media (min-width: 768px) {
     section.bio.bio-dark {
+      padding-top: var(--space-8);
       padding-bottom: var(--space-5);
+    }
+
+    section.bio.bio-light {
+      padding-bottom: var(--space-8);
+      padding-top: var(--space-5);
+    }
+
+    :global(.mobile-portrait) {
+      display: none;
+    }
+
+    :global(.desktop-portrait) {
+      position: absolute;
+
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: inline-block;
     }
   }
 
@@ -104,10 +110,21 @@
 
   #bio {
     box-shadow: var(--shadow-inset-top);
+
+    background-image: url('heart.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
   }
 
   #bio-travel {
     box-shadow: var(--shadow-inset-bottom);
+    background-image: url('travel.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    background-blend-mode: color-burn;
   }
 
   h2 {
@@ -119,20 +136,24 @@
   }
 
   @media (min-width: 768px) {
+    #bio {
+      background-size: 30%;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    #bio-travel {
+      background-size: 30%;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
     h2 {
       max-width: 25vw;
     }
 
-    div#about {
-      display: grid;
-      grid-template-rows: 1fr auto 1fr;
-    }
-
     :global(.mobile-portrait) {
       display: none;
-    }
-    .portrait {
-      display: flex;
     }
 
     section.bio {
@@ -165,11 +186,9 @@
     }
 
     section.bio.bio-light p {
-      text-justify: newspaper;
       max-width: 25vw;
     }
     section.bio.bio-dark p {
-      text-justify: newspaper;
       max-width: 25vw;
     }
   }

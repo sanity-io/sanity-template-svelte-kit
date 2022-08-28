@@ -26,7 +26,7 @@
   export let packages = []
 </script>
 
-<PageTitle title="Pricing" quote="These are the moments to remember forever." />
+<PageTitle title="Pricing" quote="These are the moments to remember forever." splash="travel" />
 {#each packages as pack, i}
   <PackagePreview
     title={pack.title}

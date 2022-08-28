@@ -25,7 +25,7 @@
   export let albums = []
 </script>
 
-<PageTitle title="Gallery" quote="Beauty can be found in all things." />
+<PageTitle title="Gallery" quote="Beauty can be found in all things." splash="heart" />
 
 {#each albums as album, i}
   <AlbumPreview

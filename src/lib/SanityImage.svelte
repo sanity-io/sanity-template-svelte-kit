@@ -7,11 +7,13 @@
   export let alt = undefined
   export let styles = ''
   export let classes = ''
+  export let id = ''
 </script>
 
 {#if image}
   <img
     on:click
+    {id}
     loading="lazy"
     src={urlFor(image).maxWidth(maxWidth).maxHeight(maxHeight).fit('fillmax')}
     alt={alt || image.alt || ''}
