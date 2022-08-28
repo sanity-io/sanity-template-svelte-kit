@@ -111,7 +111,7 @@
   #bio {
     box-shadow: var(--shadow-inset-top);
 
-    background-image: url('heart.png');
+    background-image: url('/heart.png');
     background-size: 100%;
     background-repeat: no-repeat;
     background-position: center;
@@ -119,7 +119,7 @@
 
   #bio-travel {
     box-shadow: var(--shadow-inset-bottom);
-    background-image: url('travel.png');
+    background-image: url('/travel.png');
     background-size: 100%;
     background-repeat: no-repeat;
     background-position: center;
