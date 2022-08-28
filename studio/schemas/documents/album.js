@@ -30,6 +30,16 @@ export default {
       description: "The quote that appears on the Album's Gallery page."
     },
     {
+      title: 'Splash Image',
+      name: 'splash',
+      type: 'string',
+      description: 'The little image displayed behind the title of the page.',
+      options: {
+        list: ['travel', 'heart'],
+        layout: 'radio'
+      }
+    },
+    {
       name: 'cover',
       type: 'siteImage',
       title: 'Cover Image',
@@ -42,7 +52,14 @@ export default {
       description: 'Photos from this album will be shown on the Homepage.'
     }
   ],
-  initialValue: {
-    showOnHome: true
+  initialValue: async () => {
+    const res = await fetch('https://type.fit/api/quotes')
+    let data = []
+    if (res.ok) data = await res.json()
+    return {
+      splash: 'heart',
+      quote: data ? data[Math.floor(Math.random() * data.length)].text : '',
+      showOnHome: true
+    }
   }
 }

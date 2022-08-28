@@ -58,6 +58,16 @@ export default {
       description: "The quote that appears on the Packages's page."
     },
     {
+      title: 'Splash Image',
+      name: 'splash',
+      type: 'string',
+      description: 'The little image displayed behind the title of the page.',
+      options: {
+        list: ['travel', 'heart'],
+        layout: 'radio'
+      }
+    },
+    {
       name: 'cover',
       type: 'siteImage',
       title: 'Cover Image',
@@ -83,5 +93,14 @@ export default {
       of: [{type: 'questionAnswer'}],
       validation: (Rule) => Rule.max(4)
     }
-  ]
+  ],
+  initialValue: async () => {
+    const res = await fetch('https://type.fit/api/quotes')
+    let data = []
+    if (res.ok) data = await res.json()
+    return {
+      splash: 'travel',
+      quote: data ? data[Math.floor(Math.random() * data.length)].text : ''
+    }
+  }
 }
