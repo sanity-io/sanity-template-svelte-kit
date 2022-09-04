@@ -2,10 +2,10 @@
   export let title
   export let quote
   export let subtitle = ''
-  export let splash = 'travel'
+  export let splash = 'heart'
 </script>
 
-<section class={splash}>
+<section class={splash ?? 'heart'}>
   <h2>{title}</h2>
   {#if subtitle}
     <p class="subtitle">{subtitle}</p>
@@ -27,6 +27,12 @@
     background-size: 25%;
     background-repeat: no-repeat;
     background-position: center;
+  }
+
+  @media (max-width: 768px) {
+    section {
+      background-size: 75%;
+    }
   }
 
   .travel {
