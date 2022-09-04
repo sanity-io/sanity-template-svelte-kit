@@ -1,9 +1,14 @@
 <script>
   import SocialIcon from './SocialIcon.svelte'
+  import {page} from '$app/stores'
 
   let menuOpen = false
   export let facebookUrl = ''
   export let instagramUrl = ''
+
+  page.subscribe(() => {
+    menuOpen = false
+  })
 </script>
 
 <header>
