@@ -14,20 +14,20 @@
   },
   "devDependencies": {
     "@portabletext/svelte": "^1.0.1",
-    "@sveltejs/adapter-static": "^1.0.0-next.37",
-    "@sveltejs/adapter-vercel": "^1.0.0-next.53",
-    "@sveltejs/kit": "^1.0.0-next.338",
-    "eslint": "^8.16.0",
+    "@sveltejs/adapter-static": "^1.0.0-next.42",
+    "@sveltejs/adapter-vercel": "^1.0.0-next.73",
+    "@sveltejs/kit": "^1.0.0-next.480",
+    "eslint": "^8.23.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-svelte3": "^4.0.0",
-    "prettier": "^2.6.2",
+    "prettier": "^2.7.1",
     "prettier-plugin-svelte": "^2.7.0",
-    "svelte": "^3.48.0",
+    "svelte": "^3.50.1",
     "svelte-sitemap": "^2.5.1"
   },
   "type": "module",
   "dependencies": {
-    "@sanity/client": "^3.3.0",
+    "@sanity/client": "^3.4.1",
     "@sanity/image-url": "^1.0.1"
   }
 }
