@@ -1,23 +1,3 @@
-<script context="module">
-  export async function load({params, fetch}) {
-    try {
-      const url = `/jumbotron.json`
-      const res = await fetch(url)
-      const data = await res.json()
-      if (data?.photos) {
-        return {
-          props: data
-        }
-      }
-    } catch (err) {
-      return {
-        status: 500,
-        error: new Error(`Could not load url`)
-      }
-    }
-  }
-</script>
-
 <script>
   import Jumbotron from '../lib/Jumbotron.svelte'
 
@@ -26,7 +6,8 @@
   import About from '../lib/About.svelte'
   import {siteStore} from '../lib/store'
 
-  export let photos
+  export let data
+  const photos = data.photos
 </script>
 
 <main>

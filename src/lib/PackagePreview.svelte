@@ -1,11 +1,17 @@
 <script>
   import SanityImage from './SanityImage.svelte'
 
+  /** @type {any} */
   export let previewImageOne
+  /** @type {string} */
   export let title
+  /** @type {string} */
   export let cost
+  /** @type {string} */
   export let style
+  /** @type {string} */
   export let linkToPackage
+  /** @type {string[]} */
   export let features = []
 </script>
 

@@ -4,5 +4,7 @@
   "trailingComma": "none",
   "semi": false,
   "printWidth": 100,
-  "bracketSpacing": false
+  "bracketSpacing": false,
+  "pluginSearchDirs": ["."],
+  "overrides": [{"files": "*.svelte", "options": {"parser": "svelte"}}]
 }

@@ -1,10 +1,10 @@
 <script>
   import {urlFor} from './sanityClient'
-  export let cover
-  export let title
-  export let quote
-  export let style
-  export let linkToAlbum
+  export let cover = ''
+  export let title = ''
+  export let quote = ''
+  export let style = ''
+  export let linkToAlbum = ''
 
   const previewImageOne = urlFor(cover).height(500).url()
 </script>

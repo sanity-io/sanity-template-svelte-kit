@@ -2,9 +2,11 @@
   import {onDestroy, onMount} from 'svelte'
 
   import Transition from './Transition.svelte'
+  /** @type {{question: string, answer: string}[]} */
   export let qas = []
   let answer = ''
   let question = ''
+  /** @type {ReturnType<setInterval>|null} */
   let interval
   onMount(() => {
     let qa = qas[Math.floor(Math.random() * qas.length)]
@@ -15,8 +17,9 @@
     }, 10000)
   })
   onDestroy(() => {
-    clearInterval(interval)
+    if (interval) clearInterval(interval)
   })
+  /** @type {(qa: {question: string, answer: string}, stopAuto: boolean) => any} */
   function questionClicked(qa, stopAuto = false) {
     answer = qa.answer
     question = qa.question

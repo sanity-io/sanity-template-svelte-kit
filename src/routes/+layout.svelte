@@ -1,13 +1,3 @@
-<script context="module">
-  /** @type {import('@sveltejs/kit').Load} */
-  export const load = async ({url, fetch}) => {
-    const siteRes = await fetch(`/site.json`)
-    const site = await siteRes.json()
-
-    return {props: {url: url.href, site}, stuff: {url: url.href, site}}
-  }
-</script>
-
 <script>
   import '../style.css'
   import Header from '../lib/Header.svelte'
@@ -16,8 +6,11 @@
   import {siteStore} from '../lib/store'
   import {urlFor} from '../lib/sanityClient'
 
-  export let url
-  export let site
+  export const prerender = true
+
+  export let data
+  const url = data.url
+  const site = data.site
   $siteStore = site
 </script>
 

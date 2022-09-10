@@ -1,4 +1,5 @@
 <script>
+  /** @type {string[]} */
   export let addons = []
   export let blurb = ''
   $: firstHalfOfAddons = addons.slice(0, Math.ceil(addons.length / 2))

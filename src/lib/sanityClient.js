@@ -11,7 +11,7 @@ export const client = sanityClient({
 })
 
 const builder = imageUrlBuilder(client)
-
+/** @type {(s: string) => ReturnType<import('@sanity/image-url/lib/types')>} */
 export const urlFor = (source) => {
   return builder.image(source)
 }

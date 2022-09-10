@@ -1,9 +1,12 @@
 <script>
   import {urlFor} from './sanityClient'
-
+  /** @type {any} */
   export let previewImageOne
+  /** @type {any} */
   export let previewImageTwo
+  /** @type {string} */
   export let cost
+  /** @type {string[]} */
   export let features = []
 
   const previewImageOneUrl = previewImageOne ? urlFor(previewImageOne).height(500).url() : ''

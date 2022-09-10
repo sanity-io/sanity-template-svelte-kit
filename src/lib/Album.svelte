@@ -1,11 +1,15 @@
 <script>
   import {onDestroy, onMount} from 'svelte'
-  import {browser} from '$app/env'
+  import {browser} from '$app/environment'
 
   import SanityImage from './SanityImage.svelte'
+  /** @type {any[]} */
   export let photos = []
 
+  /** @type {any} */
   let fullscreened
+
+  /** @type {(...a: any) => any} */
   function handleImageClicked(p) {
     if (browser) {
       document.body.style.overflow = 'hidden'
@@ -21,7 +25,7 @@
       fullscreened = null
     }
   }
-
+  /** @type {(...a: any) => any} */
   function handleEscape(e) {
     if (e.key === 'Escape') {
       closeFullscreened()

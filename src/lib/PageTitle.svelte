@@ -1,6 +1,6 @@
 <script>
-  export let title
-  export let quote
+  export let title = ''
+  export let quote = ''
   export let subtitle = ''
   export let splash = 'heart'
 </script>

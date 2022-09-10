@@ -1,2 +1,2 @@
 import {writable} from 'svelte/store'
-export const siteStore = writable(undefined)
+export const siteStore = writable()

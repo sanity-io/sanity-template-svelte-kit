@@ -1,5 +1,5 @@
 <script>
-  import {dev} from '$app/env'
+  import {dev} from '$app/environment'
   export let subject = 'Photography Shoot'
   export let inbox = 'bc9e8bcd4dde63a9a56610d20502ab2b'
 </script>

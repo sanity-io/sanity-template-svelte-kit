@@ -3,12 +3,14 @@
 
   import {urlFor} from './sanityClient'
 
+  /** @type {any} */
   export let photos = []
   let index = 0
   $: nextIndex = index === photos.length - 1 ? 0 : index + 1
   $: prevIndex = index === 0 ? photos.length - 1 : index - 1
   $: image = photos[index]
 
+  /** @type {ReturnType<setInterval>|null} */
   let timeout
   function next() {
     state = 'next'
@@ -34,10 +36,11 @@
   }
 
   let state = ''
+  /** @type {ReturnType<setInterval>|null} */
   let interval
   onMount(() => {
     interval = setInterval(() => {
-      next(false)
+      next()
     }, 5000)
   })
 </script>

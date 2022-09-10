@@ -7,6 +7,7 @@
   export let bottomTitle = ''
   export let bottomText = ''
 
+  /** @type {any} */
   export let image
 </script>
 
