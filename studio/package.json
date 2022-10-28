@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "sanity-svelte-kit-studio",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "package.json",
   "author": "Sanity <hello@sanity.io>",
   "scripts": {
@@ -24,7 +24,7 @@
     "@sanity/vision": "^2.30.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "sanity-plugin-asset-source-unsplash": "^0.1.5",
+    "sanity-plugin-asset-source-unsplash": "^0.2.0",
     "sanity-plugin-dashboard-widget-document-list": "^0.0.13",
     "sanity-plugin-dashboard-widget-netlify": "^1.2.1",
     "styled-components": "^5.3.3"
