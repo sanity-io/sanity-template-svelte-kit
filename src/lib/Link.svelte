@@ -2,6 +2,6 @@
   export let portableText
 </script>
 
-<a href={portableText.value.href} target="_blank">
+<a href={portableText.value.href}>
   <slot />
 </a>
