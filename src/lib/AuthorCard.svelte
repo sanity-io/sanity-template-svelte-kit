@@ -6,9 +6,11 @@
 
 {#if author?.name}
   <a href="/authors/{author.slug.current}">
-    <span>
-      <SanityImage image={author.image} maxWidth={40} />
-    </span>
+    {#if author.image}
+      <span>
+        <SanityImage image={author.image} maxWidth={40} loading="lazy" />
+      </span>
+    {/if}
     {author.name}
   </a>
 {/if}

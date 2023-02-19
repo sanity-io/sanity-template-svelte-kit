@@ -16,7 +16,7 @@ Want to make a template for Sanity and your favorite front-end framework? We’r
 
 1. Install dependencies with `npm install` or `yarn` in the root folder.
 1. Run `npm run dev` in root folder.
-1. The website will be running in `localhost:3000`
+1. The website will be running in `localhost:5173`
 
 ### Developing the Sanity studio
 
@@ -26,7 +26,7 @@ Want to make a template for Sanity and your favorite front-end framework? We’r
 
 ## Starting with the local template
 
-If you don't want to start from the [automatically deployed project](https://www.sanity.io/create?sanity-io%2Fsanity-template-svelte-kit), you can clone this repository and replace the variables found in `studio/sanity.json` with your Sanity project's credentials.
+If you don't want to start from the [automatically deployed project](https://www.sanity.io/create?sanity-io%2Fsanity-template-svelte-kit), you can clone this repository and replace the variables found in `studio/sanity.config.js` and `sanity.cli.js` files with your Sanity project's credentials. Also, ensure to replace the `<#< sanity.projectTitle >#>` field in `studio/package.json` file.
 
 ## Credits
 

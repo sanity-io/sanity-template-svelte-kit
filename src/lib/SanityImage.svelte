@@ -1,11 +1,12 @@
 <script>
   import {urlFor} from './sanityClient'
   import {onMount} from 'svelte'
-  import {browser} from '$app/env'
+  import {browser} from '$app/environment'
 
   export let image
   export let maxWidth = 1200
   export let alt = undefined
+  export let loading = 'lazy'
 
   // Example image document ID: image-cc93b69600f5cd1abce97fd0d4aa71793dbbba76-1350x900-png
   // Structure: image-${storedImgId}-${dimensions}-${format}
@@ -30,7 +31,8 @@
 
 {#if browser && image}
   <img
-    loading="lazy"
+    {loading}
+    fetchPriority={loading === 'eager' ? 'high' : undefined}
     src={urlFor(image).width(maxWidth).fit('fillmax')}
     alt={alt || image.alt || ''}
     class:loaded

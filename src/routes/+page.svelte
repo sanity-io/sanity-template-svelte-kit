@@ -2,8 +2,8 @@
   import AuthorCard from '$lib/AuthorCard.svelte'
   import PostsGrid from '$lib/PostsGrid.svelte'
 
-  export let posts
-  export let authors
+  /** @type {import('./$types').PageData} */
+  export let data
 </script>
 
 <svelte:head>
@@ -12,10 +12,10 @@
 
 <h1>Recent posts</h1>
 
-<PostsGrid {posts} />
+<PostsGrid posts={data.posts} />
 
-<h2 style="margin-top: 4rem">Author{authors.length > 1 ? 's' : ''}</h2>
+<h2 style="margin-top: 4rem">Author{data.authors.length > 1 ? 's' : ''}</h2>
 
-{#each authors as author}
+{#each data.authors as author}
   <AuthorCard {author} />
 {/each}
